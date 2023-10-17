@@ -1,0 +1,26 @@
+vim.opt.guicursor = "i:hor20"
+vim.opt.expandtab = true
+vim.opt.relativenumber = true
+vim.opt.numberwidth=4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.o.termguicolors = true
+vim.g.lua_snippets_path = "~/.config/nvim/lua/custom/lua_snippets/"
+vim.g.tex_flavour = 'latex'
+vim.g.vimtex_view_method = "zathura"
+vim.opt.conceallevel = 1
+vim.g.vimtex_syntax_conceal = {
+          accents = 1,
+          ligatures= 1,
+          cites = 1,
+          fancy = 1,
+          spacing = 0,
+          greek = 1,
+          math_bounds = 0,
+          math_delimiters = 1,
+          math_fracs = 1,
+          math_super_sub= 1,
+          math_symbols= 1,
+          sections= 0,
+          styles= 1
+}
