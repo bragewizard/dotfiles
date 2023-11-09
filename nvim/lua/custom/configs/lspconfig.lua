@@ -37,15 +37,27 @@ lspconfig.pyright.setup({
 
 lspconfig.clangd.setup({
     on_attach = function(client, bufnr)
-        client.server_capabilities.signatureHelpProvider = false
+        client.server_capabilities.signatureHelpProvider = true
         on_attach(client, bufnr)
     end,
-    cmd =
-    {
-        "clangd",
-        "--clang-tidy",
-        -- "--query-driver=/usr/bin/avr-gcc",
-        -- "--compile-commands-dir=./"
-    },
     capabilities = capabilities,
+    -- cmd =
+    -- {
+        -- "clangd",
+        -- "--background-index",
+        -- "--clang-tidy",
+        -- "--completion-style=bundled",
+        -- "--header-insertion=iwyu",
+        -- "--suggest-missing-includes",
+        -- "--cross-file-rename",
+        -- "--query-driver=/usr/bin/avr-gcc",
+        -- "--query-driver=/opt/microchip/xc32/v4.35.bin/xc32-g++",
+    -- },
 })
+
+
+
+-- lspconfig.ccls.setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- })

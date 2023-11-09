@@ -22,7 +22,6 @@ local plugins = {
                 "pyright",
                 "prettier",
                 "clangd",
-                "rust-analyzer",
             }
         }
     },
@@ -77,16 +76,10 @@ local plugins = {
                 end,
             },
         },
-        opts = function()
-            return require "custom.configs.cmp"
-        end,
-        config = function(_, opts)
-            require("cmp").setup(opts)
-        end,
     },
     {
         "lervag/vimtex",
-        lazy = false,
+        ft = "tex",
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -96,26 +89,46 @@ local plugins = {
                 "vim",
                 "lua",
                 "python",
-
-                -- web dev 
+                --
+                -- -- web dev 
                 "html",
                 "css",
                 "javascript",
                 "typescript",
                 "tsx",
                 "json",
-                -- "vue", "svelte",
+                "vue", "svelte",
 
                 -- low level
                 "c",
+                "rust",
+            },
+            highlight = {
+                enable = false,
+                disable = { },
             },
         },
     },
     {
         "folke/zen-mode.nvim",
         cmd = {'ZenMode'},
-        opts = {
-        }
     },
+    -- {
+    --     "mwouts/jupytext.vim",
+    --     ft = "json",
+    -- }
+   -- {
+    --     "dccsillag/magma-nvim",
+    --     build = {':UpdateRemotePlugins'},
+    --     cmd = {'MagmaInit'},
+    -- },
+    -- {
+    --     'edluffy/hologram.nvim',
+    --     -- lazy = false,
+    --     ft = { "markdown" },
+    --     config = require('hologram').setup({
+    --         auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+    --     })
+    -- }
 }
 return plugins

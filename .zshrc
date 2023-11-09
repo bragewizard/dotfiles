@@ -100,11 +100,16 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias sshuio="ssh -YC bragewi@login.ifi.uio.no"
-alias uiofiler="sshfs bragewi@login.ifi.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
+alias uiologin="ssh -YC bragewi@login.ifi.uio.no"
+alias uiofolder="sshfs bragewi@login.ifi.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
 alias framerate="xrandr --output eDP-1 --mode 2560x1440 --rate"
 alias texinit="cp ~/Templates/init.tex ." 
-
+mlnodeslogin() {
+    ssh -J bragewi@gothmog.uio.no bragewi@"$1".hpc.uio.no
+}
+mlnodesfile() {
+    scp -J bragewi@login.uio.no "$1" bragewi@ml1.hpc.uio.no:
+}
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
