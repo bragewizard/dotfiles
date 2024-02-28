@@ -50,6 +50,7 @@ lspconfig.clangd.setup({
         -- "--header-insertion=iwyu",
         -- "--suggest-missing-includes",
         -- "--cross-file-rename",
+        -- "--compile-commands-dir=.",
         -- "--query-driver=/usr/bin/avr-gcc",
         -- "--query-driver=/opt/microchip/xc32/v4.35.bin/xc32-g++",
     -- },

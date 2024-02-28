@@ -71,7 +71,7 @@ ZSH_THEME="agnoster"
 plugins=(vi-mode git zsh-autosuggestions history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
-
+source /usr/share/nvm/init-nvm.sh
 # User configuration
 
 TERM=xterm-256color
