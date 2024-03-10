@@ -167,6 +167,7 @@ local default_plugins = {
         "windwp/nvim-autopairs",
         opts = {
           fast_wrap = {},
+          ignored_next_char = [=[[%w%%%'%[%"\%.%`%$%\\]]=],
           disable_filetype = { "TelescopePrompt", "vim" },
         },
         config = function(_, opts)
