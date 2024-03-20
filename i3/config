@@ -15,7 +15,7 @@ set $volume pactl set-sink-volume @DEFAULT_SINK@
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs1
 exec_always --no-startup-id picom -b
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wall.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/laputa.png
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle'
 
 # Use Winkey as modifier
@@ -26,17 +26,12 @@ font pango:DM Sans 10
 for_window [class="^.*"] border pixel 0
 
 
-# for_window [window_role="pop-up"] floating enable
-# for_window [window_role="task_dialog"] floating enable
-for_window [title="winit window"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 for_window [class="feh"] floating enable
+for_window [class="pcmanfm"] floating enable
 for_window [class="yakuake"] floating enable
 for_window [class="ark"] floating enable
-for_window [class="systemsettings"] floating enable
-# for_window [class="plasmashell"] floating enable;
-for_window [class="dolphin"] floating enable;
-# for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
 for_window [class="matplotlib"] floating enable
 for_window [title="win7"] floating enable; border none
 for_window [class="krunner"] floating enable; border none
