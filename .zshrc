@@ -112,12 +112,18 @@ alias uiologin="ssh -YC bragewi@login.ifi.uio.no"
 alias uiofolder="sshfs bragewi@login.ifi.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
 alias framerate="xrandr --output eDP-1 --mode 2560x1440 --rate"
 alias texinit="cp ~/Templates/init.tex ." 
+
+pyactivate() {
+    source ~/.pyenvs/$1/bin/activate
+}
 mlnodeslogin() {
     ssh -J bragewi@gothmog.uio.no bragewi@"$1".hpc.uio.no
 }
 mlnodesfile() {
     scp -J bragewi@login.uio.no "$1" bragewi@ml1.hpc.uio.no:
 }
+
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -132,17 +138,3 @@ compinit
 # End of lines added by compinstall
 #
 #
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/brage/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/brage/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/brage/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/brage/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
