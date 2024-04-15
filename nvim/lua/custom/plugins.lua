@@ -119,7 +119,13 @@ local plugins = {
                 "vim",
                 "lua",
                 "python",
-                --
+                "gdscript",
+                "godot_resource",
+                "bash",
+                -- "latex",
+                "bibtex",
+                "markdown",
+                "make",
                 -- -- web dev 
                 "html",
                 "css",
@@ -127,16 +133,19 @@ local plugins = {
                 "typescript",
                 "tsx",
                 "json",
-                "vue", "svelte",
+                -- "vue", "svelte",
 
                 -- low level
                 "c",
+                "java",
+                "cpp",
                 "rust",
                 "wgsl",
+                "glsl",
             },
             highlight = {
-                enable = { "wgsl" },
-                disable = { "rust", "c", "python" },
+                enable = { "wgsl", "c", "rust", "cpp" }
+                -- disable = { "rust", "c", "python" },
             },
         },
     },
@@ -144,24 +153,5 @@ local plugins = {
         "folke/zen-mode.nvim",
         cmd = {'ZenMode'},
     },
-    -- {
-    --     "mwouts/jupytext.vim",
-    --     ft = "json",
-    -- }
-   -- {
-    --     "dccsillag/magma-nvim",
-    --     build = {':UpdateRemotePlugins'},
-    --     cmd = {'MagmaInit'},
-    -- },
-    -- {
-    --     'edluffy/hologram.nvim',
-    --     -- lazy = false,
-    --     ft = { "markdown" },
-    --     config = require('hologram').setup({
-    --         auto_display = true -- WIP automatic markdown image display, may be prone to breaking
-    --     })
-    -- }
-
-
 }
 return plugins

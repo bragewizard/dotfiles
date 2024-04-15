@@ -2,14 +2,16 @@ local colorizer = require("colorizer")
 colorizer.setup({
     filetypes = {
         "python",
-        "css"
+        "css",
+        "html",
+        "lua",
     },
     user_default_options = {
         RGB = true, -- #RGB hex codes
-        RRGGBB = true, -- #RRGGBB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes #282828
         names = false, -- "Name" codes like Blue or blue
         RRGGBBAA = true, -- #RRGGBBAA hex codes
-        AARRGGBB = false, -- 0xAARRGGBB hex codes
+        AARRGGBB = true, -- 0xAARRGGBB hex codes
         rgb_fn = false, -- CSS rgb() and rgba() functions
         hsl_fn = false, -- CSS hsl() and hsla() functions
         css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB

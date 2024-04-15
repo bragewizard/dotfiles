@@ -12,14 +12,23 @@ M.custom = {
     },
     n =
     {
-        ["<leader>l"] = {"g_", "go to last character of line"},
-        ["<leader>h"] = {"^", "go to first character of line"},
         ["<leader>lh"] = {':call v:lua.toggle_diagnostics()<CR>', "toggle diagnostics"},
-        ["<C-e>"] = { "4<C-e>", "scroll down 4 lines", opts = { noremap = true }},
-        ["<C-y>"] = { "4<C-y>", "scroll up 4 lines", opts = { noremap = true }},
+        ["<C-e>"] = { "4<C-e>", "scroll down 4 lines"},
+        ["<C-y>"] = { "4<C-y>", "scroll up 4 lines"},
+        ["q"] = {':noh<CR>', "noh"},
+        ["<leader>q"] = {"q", "record macro"},
+    },
+    v =
+    {
+        ["<leader>lh"] = {':call v:lua.toggle_diagnostics()<CR>', "toggle diagnostics"},
+        ["<C-e>"] = { "4<C-e>", "scroll down 4 lines"},
+        ["<C-y>"] = { "4<C-y>", "scroll up 4 lines"},
+        ["q"] = {':noh<CR>', "noh"},
+        ["<leader>q"] = {"q", "record macro"},
     }
 }
 
+  
 
 
 -- M.jukit = {

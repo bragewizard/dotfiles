@@ -1,8 +1,8 @@
----@type ChadrcConfig 
+---@class ChadrcConfig
 local M = {}
 M.ui =
 {
-    theme = 'gruvbox',
+    theme = 'chadracula',
     lsp = {
         signature = {
             disabled = true
@@ -13,7 +13,7 @@ M.ui =
         -- AlphaHeader = { fg = "blue" },
         -- CursorLine = { bg = "black2", },
         Statement = { italic = true, },
-        -- Define = { italic = true },
+        Define = { italic = true },
         -- eliixirString = { italic = true },
         Include = { italic = true },
         -- TSVariable = { italic = true },
@@ -21,22 +21,6 @@ M.ui =
         -- Type = { italic = true },
         -- Function = { italic = true },
         Keyword = { italic = true },
-        -- TSKeyword = { italic = true },
-        -- TSMethod = { italic = true },
-        -- TSDefine = { italic = true },
-        -- SpecialComment = { italic = true },
-        -- Pmenu = { bg = "white" },
-        -- Pmenu = { bg = "#ffffff" }, this works too
-
-        -- if you want to lighten or darken color
-        -- this will use the black colorf rom nvchad theme & lighten it by 2x
-        -- use a negative number to darken it
-        -- MyHighlightGroup = { -- custom highlights are also allowed
-        --     fg = "red",
-        --     bg = "#ffffff"
-        -- },  
-        -- Normal = { bg = "#282828" },
-
     },
     changed_themes = {
         gruvbox = {
@@ -72,7 +56,6 @@ M.ui =
                 pmenu_bg = "#83a598",
                 folder_bg = "#749689",
             },
-
             base_16 = {
                 base00 = "#282828",
                 base01 = "#3c3836",
@@ -82,32 +65,67 @@ M.ui =
                 base05 = "#d5c4a1",
                 base06 = "#ebdbb2",
                 base07 = "#fbf1c7",
-
-                -- base08 = "#8ec07c",
-                -- base08 = "#d79921",
-                -- base08 = "#b8bb26",
-                base08 = "#fabd2f",
-                -- base08 = "#fe8019",
-
+                base08 = "#8ec07c",
+                -- base08 = "#fabd2f",
                 base09 = "#fe8019",
-                -- base09 = "#fb4934",
-
-                -- base0A = "#fabd2f",
-                base0A = "#8ec07c", -- good
-
+                base0A = "#fabd2f",
                 base0B = "#b8bb26", -- good
-
-                -- base0C = "#8ec07c",
                 base0C = "#83a598",
-                -- base0C = "#d65d0e",
-                -- base0C = "#fb4934",
-                -- base0C = "#fabd2f",
-                -- base0C = "#a9b665",
-                -- base0C = "#d79921",
-
                 base0D = "#83a598",
                 base0E = "#d3869b",
                 base0F = "#d65d0e",
+            },
+        },
+        chadracula = {
+            base_30 = {
+                white = "#F8F8F2",
+                darker_black = "#222430",
+                black = "#282A36", --  nvim bg
+                black2 = "#2d303e",
+                one_bg = "#373844", -- real bg of onedark
+                one_bg2 = "#34374a",
+                one_bg3 = "#565761",
+                grey = "#5e5f69",
+                grey_fg = "#666771",
+                grey_fg2 = "#6e6f79",
+                light_grey = "#73747e",
+                red = "#ff7070",
+                baby_pink = "#ff86d3",
+                pink = "#FF79C6",
+                line = "#3c3d49", -- for lines like vertsplit
+                green = "#50fa7b",
+                vibrant_green = "#5dff88",
+                nord_blue = "#8b9bcd",
+                blue = "#a1b1e3",
+                yellow = "#F1FA8C",
+                sun = "#FFFFA5",
+                purple = "#BD93F9",
+                dark_purple = "#BD93F9",
+                teal = "#92a2d4",
+                orange = "#FFB86C",
+                cyan = "#8BE9FD",
+                statusline_bg = "#2d2f3b",
+                lightbg = "#41434f",
+                pmenu_bg = "#b389ef",
+                folder_bg = "#BD93F9",
+            },
+            base_16 = {
+                base00 = "#282936",
+                base01 = "#383946",
+                base02 = "#4d4f68",
+                base03 = "#626483",
+                base04 = "#83a598",
+                base05 = "#e9e9f4",
+                base06 = "#f1f2f8",
+                base07 = "#f7f7fb",
+                base08 = "#ebdbb2",
+                base09 = "#FFB86C",
+                base0A = "#a1b1e3",
+                base0B = "#fbf1c7",
+                base0C = "#8BE9FD",
+                base0D = "#BD93F9",
+                base0E = "#ff75a0",
+                base0F = "#F8F8F2",
             }
         }
     }

@@ -5,7 +5,9 @@ vim.opt.numberwidth=4
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 4
 vim.o.termguicolors = true
-vim.opt.foldmethod = "marker"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmarker = "//>,//<"
 vim.g.lua_snippets_path = "~/.config/nvim/lua/custom/lua_snippets/"
 vim.g.tex_flavour = 'latex'
 vim.g.vimtex_view_method = "zathura"
@@ -25,6 +27,8 @@ vim.g.vimtex_syntax_conceal = {
           sections= 0,
           styles= 1
 }
+
+
 local enable_providers = {
       "python3_provider",
       -- "node_provider",
@@ -80,21 +84,18 @@ vim.g.jukit_file_encodings = 'utf-8'
 -- Default encoding for reading and writing to files in the python helper functions
 vim.g.jukit_venv_in_output_hist = 1
 -- Whether to also use the provided terminal command for the output history split when starting the splits using the JukitOUtHist command. If 0, the provided terminal command is only used in the output split, not in the output history split.
-
 vim.g.jukit_savefig_dpi = 200
 -- Value for `dpi` argument for matplotlibs `savefig` function
 vim.g.jukit_mpl_block = 1
 -- If set to 0, then `plt.show()` will by default be executed as if `plt.show(block=False)` was specified
 vim.g.jukit_custom_backend = -1
 -- Custom matplotlib backend to use
-
 -- IF KITTY IS USED:
 -- vim.g.jukit_mpl_style = jukit#util#plugin_path() . '/helpers/matplotlib-backend-kitty/backend.mplstyle'
 -- File specifying matplotlib plot options. This is the default value if kitty terminal is used
 -- IF KITTY OR TMUX IS USED:
 vim.g.jukit_inline_plotting = 1
 -- Enable in-terminal-plotting. Only supported for kitty or tmux+iTerm2 -> BE SURE TO SPECIFY THE TERMINAL VIA `g:jukit_terminal`! (see variables in section 'Basic jukit options')
---
 -- vim.g.jukit_output_bg_color = get(g:, 'jukit_output_bg_color', '')
 -- Optional custom background color of output split window (i.e. target window of sent code)
 -- vim.g.jukit_output_fg_color = get(g:, 'jukit_output_fg_color', '')
