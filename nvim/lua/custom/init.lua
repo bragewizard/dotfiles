@@ -8,6 +8,7 @@ vim.o.termguicolors = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldmarker = "//>,//<"
+vim.opt.foldenable = false
 vim.g.lua_snippets_path = "~/.config/nvim/lua/custom/lua_snippets/"
 vim.g.tex_flavour = 'latex'
 vim.g.vimtex_view_method = "zathura"
