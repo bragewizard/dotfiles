@@ -7,16 +7,16 @@ local M = {}
 M.custom = {
     i =
     {
-        ["jk"] = { "<ESC>", "escape insert mode" , opts = { nowait = true }},
-        ["JK"] = { "<ESC>", "escape insert mode" , opts = { nowait = true }},
+        ["jk"] = { "<ESC>", "escape insert mode" },
+        ["JK"] = { "<ESC>", "escape insert mode" },
     },
     n =
     {
-        ["<leader>lh"] = {':call v:lua.toggle_diagnostics()<CR>', "toggle diagnostics"},
+        ["<leader>kh"] = {':call v:lua.toggle_diagnostics()<CR>', "toggle diagnostics"},
         ["<C-e>"] = { "6<C-e>", "scroll down 6 lines"},
         ["<C-y>"] = { "6<C-y>", "scroll up 6 lines"},
-        ["<leader>j"] = {"i<CR><ESC>", "break line", opts = { noremap = true }},
-        ["<leader>l"] = {"i<SPACE><ESC>", "insert space",opts = { noremap = true }},
+        ["<leader>l"] = {"i<SPACE><ESC>", "insert space"},
+        ["<leader>j"] = {"i<CR><ESC>","break line"},
         ["q"] = {':noh<CR>', "noh"},
         ["<leader>q"] = {"q", "record macro"},
     },
