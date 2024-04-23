@@ -80,7 +80,7 @@ M.ui =
             base_30 = {
                 white = "#F8F8F2",
                 darker_black = "#24232A",
-                black = "#292832", --  nvim bg
+                black = "#292830", --  nvim bg
                 black2 = "#2d303e",
                 one_bg = "#373844", -- real bg of onedark
                 one_bg2 = "#34374a",
@@ -110,7 +110,7 @@ M.ui =
                 folder_bg = "#3BDBA4",
             },
             base_16 = {
-                base00 = "#292832",
+                base00 = "#292830",
                 base01 = "#383946",
                 base02 = "#4d4f68",
                 base03 = "#626483",

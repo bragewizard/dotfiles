@@ -13,22 +13,23 @@ M.custom = {
     n =
     {
         ["<leader>lh"] = {':call v:lua.toggle_diagnostics()<CR>', "toggle diagnostics"},
-        ["<C-e>"] = { "4<C-e>", "scroll down 4 lines"},
-        ["<C-y>"] = { "4<C-y>", "scroll up 4 lines"},
+        ["<C-e>"] = { "6<C-e>", "scroll down 6 lines"},
+        ["<C-y>"] = { "6<C-y>", "scroll up 6 lines"},
+        ["<leader>j"] = {"i<CR><ESC>", "break line", opts = { noremap = true }},
+        ["<leader>l"] = {"i<SPACE><ESC>", "insert space",opts = { noremap = true }},
         ["q"] = {':noh<CR>', "noh"},
         ["<leader>q"] = {"q", "record macro"},
     },
     v =
     {
-        ["<leader>lh"] = {':call v:lua.toggle_diagnostics()<CR>', "toggle diagnostics"},
-        ["<C-e>"] = { "4<C-e>", "scroll down 4 lines"},
-        ["<C-y>"] = { "4<C-y>", "scroll up 4 lines"},
+        ["<leader>kh"] = {':call v:lua.toggle_diagnostics()<CR>', "toggle diagnostics"},
+        ["<C-e>"] = { "6<C-e>", "scroll down 6 lines"},
+        ["<C-y>"] = { "6<C-y>", "scroll up 6 lines"},
         ["q"] = {':noh<CR>', "noh"},
         ["<leader>q"] = {"q", "record macro"},
     }
 }
 
-  
 
 
 -- M.jukit = {
