@@ -70,6 +70,13 @@ lspconfig.wgsl_analyzer.setup({
     filetypes = {"wgsl"},
 })
 
+
+lspconfig.zls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = {"zig"},
+})
+
 -- lspconfig.ccls.setup({
 --     on_attach = on_attach,
 --     capabilities = capabilities,

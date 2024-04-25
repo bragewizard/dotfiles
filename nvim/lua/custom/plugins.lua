@@ -24,31 +24,14 @@ local plugins = {
             require "custom.configs.copilot"
         end,
     },
-    {
-        "williamboman/mason.nvim",
-        opts = {
-            ensure_installed = {
-                "pyright",
-                "prettier",
-                "clangd",
-                "wgsl-analyzer"
-            }
-        }
-    },
 
 
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            "jose-elias-alvarez/null-ls.nvim",
-            config = function()
-                require "custom.configs.null-ls"
-            end,
-        },
         config = function ()
             require "plugins.configs.lspconfig"
             require "custom.configs.lspconfig"
-        end
+        end,
     },
 
 
@@ -139,12 +122,17 @@ local plugins = {
                 "c",
                 "java",
                 "cpp",
+                "zig",
                 "rust",
                 "wgsl",
                 "glsl",
             },
             highlight = {
-                enable = { "wgsl", "c", "rust", "cpp" }
+                enable = { "wgsl", "c", "rust", "cpp", "zig" },
+                -- disable = { "rust", "c", "python" },
+            },
+            indent = {
+                enable = false,
                 -- disable = { "rust", "c", "python" },
             },
         },
