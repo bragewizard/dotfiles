@@ -87,6 +87,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+export HOSTALIASES=~/.hosts
+export ROS_MASTER_URI=http://tiago-135c:11311
+export ROS_IP=vixen-nb.uio.no
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
