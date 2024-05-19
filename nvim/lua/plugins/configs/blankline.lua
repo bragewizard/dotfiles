@@ -19,8 +19,6 @@ M.blankline = {
   show_first_indent_level = false,
   show_current_context = false,
   show_current_context_start = false,
-
-
 }
 
 return M

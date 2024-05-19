@@ -1,67 +1,123 @@
 dofile(vim.g.base46_cache .. "lsp")
 require "nvchad.lsp"
 
-local M = {}
 local utils = require "core.utils"
 
--- export on_attach & capabilities for custom lspconfigs
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = true,
+        underline = false,
+        -- update_in_insert = false,
+        -- signs = false
+    }
+)
 
-M.on_attach = function(client, bufnr)
-  client.server_capabilities.documentFormattingProvider = true
-  client.server_capabilities.documentRangeFormattingProvider = true
+local on_attach = function(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = true
+    client.server_capabilities.documentRangeFormattingProvider = true
 
-  utils.load_mappings("lspconfig", { buffer = bufnr })
+    utils.load_mappings("lspconfig", { buffer = bufnr })
 
-  if client.server_capabilities.signatureHelpProvider then
-    require("nvchad.signature").setup(client)
-  end
+    if client.server_capabilities.signatureHelpProvider then
+        require("nvchad.signature").setup(client)
+    end
 
-  if not utils.load_config().ui.lsp_semantic_tokens and client.supports_method "textDocument/semanticTokens" then
-    client.server_capabilities.semanticTokensProvider = nil
-  end
+    if not utils.load_config().ui.lsp_semantic_tokens and client.supports_method "textDocument/semanticTokens" then
+        client.server_capabilities.semanticTokensProvider = nil
+    end
 end
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-M.capabilities.textDocument.completion.completionItem = {
-  documentationFormat = { "markdown", "plaintext" },
-  snippetSupport = true,
-  preselectSupport = true,
-  insertReplaceSupport = true,
-  labelDetailsSupport = true,
-  deprecatedSupport = true,
-  commitCharactersSupport = true,
-  tagSupport = { valueSet = { 1 } },
-  resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  },
-}
-
-require("lspconfig").lua_ls.setup {
-  on_attach = M.on_attach,
-  capabilities = M.capabilities,
-
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-          [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
-          [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+capabilities.textDocument.completion.completionItem = {
+    documentationFormat = { "markdown", "plaintext" },
+    snippetSupport = true,
+    preselectSupport = true,
+    insertReplaceSupport = true,
+    labelDetailsSupport = true,
+    deprecatedSupport = true,
+    commitCharactersSupport = true,
+    tagSupport = { valueSet = { 1 } },
+    resolveSupport = {
+        properties = {
+            "documentation",
+            "detail",
+            "additionalTextEdits",
         },
-        maxPreload = 100000,
-        preloadFileSize = 10000,
-      },
     },
-  },
 }
 
-return M
+local lspconfig = require("lspconfig")
+lspconfig.lua_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                    [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+                    [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
+                    [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+                },
+                maxPreload = 100000,
+                preloadFileSize = 10000,
+            },
+        },
+    },
+}
+
+lspconfig.pyright.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "python" },
+    settings =
+    {
+        pyright = { autoImportCompletion = true },
+        python =
+        {
+            analysis = { typeCheckingMode = 'off' }
+        }
+    }
+})
+
+lspconfig.rust_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "rust" },
+})
+
+lspconfig.wgsl_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "wgsl" },
+})
+
+lspconfig.zls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "zig" },
+})
+
+lspconfig.ccls.setup({
+    init_options = { documentFormatting = true },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "c", "cpp", "objc", "objcpp" },
+    settings = {
+        rootMarkers = { ".ccls", ".git/" },
+    },
+})
+
+lspconfig.typst_lsp.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "typ" },
+    -- settings = {
+    -- exportPdf = "onType"
+    -- }
+})

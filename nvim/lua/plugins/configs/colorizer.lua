@@ -1,5 +1,4 @@
-local colorizer = require("colorizer")
-colorizer.setup({
+local options = {
     filetypes = {
         "python",
         "css",
@@ -30,4 +29,5 @@ colorizer.setup({
     },
     -- all the sub-options of filetypes apply to buftypes
     buftypes = {},
-})
+}
+return options
