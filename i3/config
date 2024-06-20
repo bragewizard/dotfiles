@@ -38,6 +38,7 @@ for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [title="floating"] floating enable; border none
+for_window [class="mpv"] floating enable;
 
 # Change gap size
 gaps outer 8

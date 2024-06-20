@@ -245,6 +245,16 @@ local default_plugins = {
         "folke/zen-mode.nvim",
         cmd = {'ZenMode'},
     },
+
+    {
+        "lervag/vimtex",
+        ft = {"tex","md"},
+    },
+
+    {
+        "kaarmu/typst.vim",
+        ft = {"typst"},
+    },
 }
 
 local config = require("core.utils").load_config()
