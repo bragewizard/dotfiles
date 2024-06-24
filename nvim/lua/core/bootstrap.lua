@@ -19,7 +19,7 @@ M.lazy = function(install_path)
 
     local base46_repo = "https://github.com/NvChad/base46"
     shell_call { "git", "clone", "--depth", "1", "-b", "v2.0", base46_repo, lazy_path }
-    vim.opt.rtp:prepend(lazy_path)
+    -- vim.opt.rtp:prepend(lazy_path)
 
     require("base46").compile()
 
@@ -27,7 +27,7 @@ M.lazy = function(install_path)
     M.echo "  Installing lazy.nvim & plugins ..."
     local repo = "https://github.com/folke/lazy.nvim.git"
     shell_call { "git", "clone", "--filter=blob:none", "--branch=stable", repo, install_path }
-    vim.opt.rtp:prepend(install_path)
+    -- vim.opt.rtp:prepend(install_path)
 
     -- install plugins
     require "plugins"
