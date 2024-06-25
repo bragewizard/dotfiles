@@ -1,7 +1,11 @@
-return {
+-- Setup lazy.nvim
+require("lazy").setup({
+  -- colorscheme that will be used when installing plugins.
+  spec = {
+    { import = "plugins" },
+  },
+  install = { colorscheme = { "habamax" } },
   defaults = { lazy = true },
-  install = { colorscheme = { "nvchad" } },
-
   ui = {
     icons = {
       ft = "",
@@ -10,7 +14,6 @@ return {
       not_loaded = "",
     },
   },
-
   performance = {
     rtp = {
       disabled_plugins = {
@@ -44,4 +47,5 @@ return {
       },
     },
   },
-}
+
+})

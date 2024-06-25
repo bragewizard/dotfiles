@@ -30,4 +30,18 @@ local options = {
     -- all the sub-options of filetypes apply to buftypes
     buftypes = {},
 }
-return options
+
+return {
+      {
+        "NvChad/nvim-colorizer.lua",
+        init = function()
+            require("utils").lazy_load "nvim-colorizer.lua"
+        end,
+        config = function()
+            require("colorizer").setup(options)
+            vim.defer_fn(function()
+                require("colorizer").attach_to_buffer(0)
+            end, 0)
+        end,
+    },
+}
