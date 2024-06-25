@@ -25,7 +25,7 @@ map("n", "<leader>td", "<cmd>call v:lua.toggle_diagnostics()<CR>", { desc = "tog
 map("n", "<leader>q", "q", { desc = "record macro" })
 map("n", "<leader>l", "i<SPACE><ESC>", { desc = "insert space" })
 map("n", "<leader>j", "i<CR><ESC>", { desc = "break line" })
-map("n", "q", ":noh<CR>", { desc = "noh" })
+map("n", "q", ":noh<CR>", { desc = "noh", silent = true })
 map("n", "<C-e>", "6<C-e>", { desc = "scroll down 6 lines" })
 map("n", "<C-y>", "6<C-y>", { desc = "scroll up 6 lines" })
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "lsp diagnostic loclist" })
@@ -42,7 +42,7 @@ map("v", "<leader>ds", vim.diagnostic.setloclist, { desc = "lsp diagnostic locli
 map("v", "<leader>kh", "<cmd>call v:lua.toggle_diagnostics()<CR>", { desc = "toggle diagnostics" })
 map("v", "<C-e>", "6<C-e>", { desc = "scroll down 6 lines" })
 map("v", "<C-y>", "6<C-y>", { desc = "scroll up 6 lines" })
-map("v", "q", ":noh<CR>", { desc = "noh" })
+map("v", "q", ":noh<CR>", { desc = "noh", silent = true })
 map("v", "<leader>q", "q", { desc = "record macro" })
 map("v", "<leader>fm", function()
   require("conform").format { lsp_fallback = true }
