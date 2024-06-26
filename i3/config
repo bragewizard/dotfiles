@@ -72,12 +72,12 @@ floating_modifier $mod
 # Use Mouse+$mod to drag floating windows to their wanted position
 
 # Set border and highlight colors to match the background
-client.focused              #282828 #282828     #FFFFFF #282828 #282828
-client.focused_inactive     #333333 #282828     #FFFFFF #404040 #404040
-client.unfocused            #333333 #222222     #ffffff #333333 #333333
-client.urgent               #2F343A #900000     #FFFFFF #900000 #900000
-client.placeholder          #000000 #0C0C0C     #FFFFFF #000000 #0C0C0C
-client.background           #282828
+# client.focused              #282828 #282828     #FFFFFF #282828 #282828
+# client.focused_inactive     #333333 #282828     #FFFFFF #404040 #404040
+# client.unfocused            #333333 #222222     #ffffff #333333 #333333
+# client.urgent               #2F343A #900000     #FFFFFF #900000 #900000
+# client.placeholder          #000000 #0C0C0C     #FFFFFF #000000 #0C0C0C
+# client.background           #282828
 # Hide title bars
 
 # Remove window borders

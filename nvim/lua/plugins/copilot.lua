@@ -21,7 +21,6 @@ return {
                     enabled = true,
                     auto_trigger = true,
                     debounce = 75,
-                    mapping = {},
                 },
                 filetypes = {
                     yaml = false,
