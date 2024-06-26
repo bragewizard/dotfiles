@@ -1,9 +1,9 @@
 return {
     {"nvim-lua/plenary.nvim"},
-    -- {
-    --     "tpope/vim-surround",
-    --     lazy = false
-    -- },
+    {
+        "tpope/vim-surround",
+        lazy = false,
+    },
     {
         "folke/which-key.nvim",
         keys = { "<leader>", "<c-r>", '"', "'", "`", "c", "v", "g" },
@@ -34,7 +34,9 @@ return {
         "ggandor/leap.nvim",
         lazy = false,
         config = function()
-            require("leap").create_default_mappings()
+            local leap = require('leap')
+            leap.opts.special_keys.prev_target = '<backspace>'
+            require('leap.user').set_repeat_keys('<enter>', '<backspace>')
         end,
     },
 }

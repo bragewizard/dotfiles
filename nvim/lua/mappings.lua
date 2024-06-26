@@ -33,7 +33,6 @@ map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 map("n", "<leader>fm", function()
   require("conform").format { lsp_fallback = true }
 end, { desc = "format files" })
--- map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
 
 -- GENERAL VISUAL MODE
 map("v", "<", "<gv", { desc = "indent left" })
@@ -70,8 +69,6 @@ map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find o
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
-map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
-map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "telescope nvchad themes" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(
   "n",
@@ -87,10 +84,33 @@ map("n", "<leader>wk", function()
 end, { desc = "whichkey query lookup" })
 
 
+-- COPILOT
+map("i", "<C-l>", function()
+  require("copilot.suggestion").accept()
+end, { desc = "copilot complete" })
+map("i", "<C-h>", function()
+  require("copilot.suggestion").dismiss()
+end, { desc = "copilot dismiss" })
+map("i", "<C-j>", function()
+  require("copilot.suggestion").next()
+end, { desc = "copilot next" })
+map("i", "<C-k>", function()
+  require("copilot.suggestion").prev()
+end, { desc = "copilot prev" })
+map("i", "<C-;>", function()
+  require("copilot.suggestion").accept_word()
+end, { desc = "copilot accept" })
+map("n", "<leader>tc", function()
+    require("copilot.suggestion").toggle_auto_trigger()
+end, { desc = "copilot toggle auto trigger" })
+
+
+
+
 -- LEAP
--- map({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)')
--- map({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
--- map({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
+map({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)', {desc = "leap forward"})
+map({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)' , {desc = "leap backward"})
+map({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)', {desc = "leap from window"})
 
 -- BLANKLINE
 map("n", "<leader>cc", function()
@@ -109,63 +129,66 @@ map("n", "<leader>cc", function()
 end, { desc = "blankline jump to current context" })
 
 
-
+-- LSP
 map("n", "<leader>ks", function()
   vim.lsp.buf.signature_help()
 end, { desc = "lsp signature help" })
 
--- TODO: FIX THESE
--- terminal
--- map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
--- new terminals
--- map("n", "<leader>h", function()
---   require("nvchad.terminal").new { pos = "sp" }
--- end, { desc = "terminal new horizontal term" })
---
--- map("n", "<leader>v", function()
---   require("nvchad.terminal").new { pos = "vsp" }
--- end, { desc = "terminal new vertical window" })
---
--- -- toggleable
--- map({ "n", "t" }, "<A-v>", function()
---   require("nvchad.terminal").toggle { pos = "vsp", id = "vtoggleTerm" }
--- end, { desc = "terminal toggleable vertical term" })
---
--- map({ "n", "t" }, "<A-h>", function()
---   require("nvchad.terminal").toggle { pos = "sp", id = "htoggleTerm" }
--- end, { desc = "terminal new horizontal term" })
---
--- map({ "n", "t" }, "<A-i>", function()
---   require("plugins.nvchad.terminal").toggle { pos = "float", id = "floatTerm" }
--- end, { desc = "terminal toggle floating term" })
 
--- map("n", "<tab>", function()
---   require("nvchad.tabufline").next()
--- end, { desc = "buffer goto next" })
--- map("n", "<S-tab>", function()
---   require("nvchad.tabufline").prev()
--- end, { desc = "buffer goto prev" })
--- map("n", "<leader>x", function()
---   require("nvchad.tabufline").close_buffer()
+
+
+-- CMP
+-- mapping = {
+-- ["<C-p>"] = cmp.mapping.select_prev_item(),
+-- ["<C-n>"] = cmp.mapping.select_next_item(),
+-- ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+-- ["<C-d>"] = cmp.mapping.scroll_docs(4),
+-- ["<C-Space>"] = cmp.mapping.complete(),
+-- ["<C-e>"] = cmp.mapping.close(),
+-- ["<Tab>"] = cmp.mapping(function(fallback)
+--   if cmp.visible() then
+--     cmp.confirm {
+--                 behavior = cmp.ConfirmBehavior.Insert,
+--                 select   = true,
+--             }
+--   elseif require("luasnip").expand_or_jumpable() then
+--     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+--   else
+--     fallback()
+--   end
+-- end, {
+--   "i",
+--   "s",
+-- }),
+-- ["<S-Tab>"] = cmp.mapping(function(fallback)
+--   if require("luasnip").jumpable(-1) then
+--     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+--   else
+--     fallback()
+--   end
+-- end, {
+--   "i",
+--   "s",
+-- }),
+-- },
+
+
+--
+
 -- end, { desc = "buffer close" })
 --         ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 --         ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
 --         ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
 --         ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 --
---
 --     v = {
 --         ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
 --         ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 
 --     },
---
 --     x = {
 --         ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 --         ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
---         -- Don't copy the replaced text after pasting in visual mode
---         -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
---         ["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', "Dont copy replaced text", opts = { silent = true } },
 --     },
 -- }
 

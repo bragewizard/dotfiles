@@ -9,11 +9,8 @@ return {
                     enabled = true,
                     auto_refresh = false,
                     keymap = {
-                        jump_prev = "[[",
-                        jump_next = "]]",
                         accept = "<CR>",
                         refresh = "gr",
-                        open = "<A-CR>"
                     },
                     layout = {
                         position = "bottom", -- | top | left | right
@@ -24,14 +21,7 @@ return {
                     enabled = true,
                     auto_trigger = true,
                     debounce = 75,
-                    keymap = {
-                        accept = "<A-l>",
-                        accept_word = "<A-;>",
-                        accept_line = "<A-o>",
-                        next = "<A-n>",
-                        prev = "<A-p>",
-                        dismiss = "<A-k>",
-                    },
+                    mapping = {},
                 },
                 filetypes = {
                     yaml = false,

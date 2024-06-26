@@ -19,13 +19,6 @@ return {
                 shell = vim.o.shell, -- change the default shell
                 float_opts = {
                     border = 'curved',
-                --     width = 120,
-                --     height = 40,
-                --     winblend = 3,
-                --     highlights = {
-                --         border = "Normal",
-                --         background = "Normal",
-                --     }
                 }
             }
         end
