@@ -18,8 +18,8 @@ local red
 
 if vim.g.colors_name == "nordic" then
     local C = require("nordic.colors")
-    text_hl = { fg = C.gray3 }
-    icon_hl = { fg = C.gray4 }
+    text_hl = { fg = C.gray3, }
+    icon_hl = { fg = C.gray4, }
     green = C.green.base
     yellow = C.yellow.base
     red = C.red.base
@@ -237,7 +237,7 @@ return {
                     telescope,
                     ["nvim-tree"] = tree,
                 },
-                        })
-                    end,
-                }
+            })
+        end,
+    }
 }

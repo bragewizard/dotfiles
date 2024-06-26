@@ -22,15 +22,6 @@ g.lua_snippets_path = "~/.config/nvim/lua/custom/lua_snippets/"
 g.tex_flavour = 'latex'
 g.vimtex_view_method = "zathura"
 g.diagnostics_visible = true
-function _G.toggle_diagnostics()
-  if vim.g.diagnostics_visible then
-    vim.g.diagnostics_visible = false
-    vim.diagnostic.enable(false)
-  else
-    vim.g.diagnostics_visible = true
-    vim.diagnostic.enable(true)
-  end
-end
 g.python3_host_prog = '/usr/bin/python3'
 g.jukit_shell_cmd = 'ipython3'
 g.jukit_terminal = 'kitty'
@@ -78,7 +69,6 @@ opt.softtabstop = 4
 opt.smartindent = true
 opt.autoindent = true
 opt.textwidth = 120
-vim.o.termguicolors = true
 opt.foldmethod = "indent"
 opt.foldnestmax = 1
 opt.foldmarker = "//<,//>"
@@ -86,6 +76,7 @@ opt.foldenable = false
 opt.formatoptions:remove({ 'r', 'o', 't' })
 opt.formatoptions:append({ 'c' })
 opt.conceallevel = 1
+opt.hidden = true
 -- Indenting
 
 opt.fillchars = { eob = " " }
@@ -109,11 +100,10 @@ opt.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
-
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
 
+
+-- PROVIDERS
 local enable_providers = {
       "python3_provider",
       -- "node_provider",
@@ -123,38 +113,11 @@ local enable_providers = {
       vim.g["loaded_" .. plugin] = nil
       vim.cmd("runtime " .. plugin)
     end
-
-
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-    pattern = "*.wgsl",
-    callback = function()
-    vim.bo.filetype = "wgsl"
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  callback = function()
-    vim.opt_local.formatoptions:remove({ 'r', 'o' })
-    vim.opt_local.formatoptions:append({ 'c' })
-  end,
-})
-
--- Ensure correct backgrond for lualine.
-vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
-    callback = function(_) require("lualine").setup({}) end,
-    pattern = { "*.*" },
-    once = true,
-})
-
 -- disable some default providers
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
   vim.g["loaded_" .. provider .. "_provider"] = 0
 end
 
--- add binaries installed by mason.nvim to path
-local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
-vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
 
 -------------------------------------- autocmds ------------------------------------------
 local autocmd = vim.api.nvim_create_autocmd
@@ -167,5 +130,38 @@ autocmd("FileType", {
   end,
 })
 
+
+-- Ensure correct backgrond for lualine.
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+    callback = function(_) require("lualine").setup({}) end,
+    pattern = { "*.*" },
+    once = true,
+})
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+    vim.opt_local.formatoptions:append({ 'c' })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = "*.wgsl",
+    callback = function()
+    vim.bo.filetype = "wgsl"
+  end,
+})
+
 -------------------------------------- commands ------------------------------------------
 
+function _G.toggle_diagnostics()
+  if vim.g.diagnostics_visible then
+    vim.g.diagnostics_visible = false
+    vim.diagnostic.enable(false)
+  else
+    vim.g.diagnostics_visible = true
+    vim.diagnostic.enable(true)
+  end
+end

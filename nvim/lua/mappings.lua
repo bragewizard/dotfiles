@@ -109,6 +109,11 @@ map("n", "<leader>cc", function()
 end, { desc = "blankline jump to current context" })
 
 
+
+map("n", "<leader>ks", function()
+  vim.lsp.buf.signature_help()
+end, { desc = "lsp signature help" })
+
 -- TODO: FIX THESE
 -- terminal
 -- map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
@@ -199,12 +204,7 @@ end, { desc = "blankline jump to current context" })
 --             "LSP implementation",
 --         },
 --
---         ["<leader>ks"] = {
---             function()
---                 vim.lsp.buf.signature_help()
---             end,
---             "LSP signature help",
---         },
+
 --
 --         ["<leader>D"] = {
 --             function()

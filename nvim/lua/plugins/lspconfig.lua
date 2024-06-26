@@ -5,21 +5,17 @@ return {
             require("utils").lazy_load "nvim-lspconfig"
         end,
         config = function()
-            local utils = require "utils"
-
             vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
                 vim.lsp.diagnostic.on_publish_diagnostics, {
                     virtual_text = true,
                     underline = false,
-                    -- update_in_insert = false,
+                    update_in_insert = false,
                     -- signs = false
                 }
             )
             local on_attach = function(client, bufnr)
                 client.server_capabilities.documentFormattingProvider = true
                 client.server_capabilities.documentRangeFormattingProvider = true
-
-                utils.load_mappings("lspconfig", { buffer = bufnr })
 
 
                 if not client.supports_method "textDocument/semanticTokens" then

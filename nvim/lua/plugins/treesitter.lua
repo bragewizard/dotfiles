@@ -30,6 +30,7 @@ return {
                     "rust",
                     "wgsl",
                     "glsl",
+                    "regex",
                 },
                 highlight = {
                     enable = true,

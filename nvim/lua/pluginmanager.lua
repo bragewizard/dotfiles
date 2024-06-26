@@ -1,6 +1,5 @@
 -- Setup lazy.nvim
 require("lazy").setup({
-  -- colorscheme that will be used when installing plugins.
   spec = {
     { import = "plugins" },
   },
@@ -47,5 +46,4 @@ require("lazy").setup({
       },
     },
   },
-
 })
