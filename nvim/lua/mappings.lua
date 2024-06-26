@@ -31,7 +31,7 @@ map("n", "<C-y>", "6<C-y>", { desc = "scroll up 6 lines" })
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "lsp diagnostic loclist" })
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 map("n", "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
+    require("conform").format { lsp_fallback = true }
 end, { desc = "format files" })
 
 -- GENERAL VISUAL MODE
@@ -44,7 +44,7 @@ map("v", "<C-y>", "6<C-y>", { desc = "scroll up 6 lines" })
 map("v", "q", ":noh<CR>", { desc = "noh", silent = true })
 map("v", "<leader>q", "q", { desc = "record macro" })
 map("v", "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
+    require("conform").format { lsp_fallback = true }
 end, { desc = "format files" })
 
 -- OTHER
@@ -71,34 +71,34 @@ map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(
-  "n",
-  "<leader>fa",
-  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "telescope find all files" }
+    "n",
+    "<leader>fa",
+    "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+    { desc = "telescope find all files" }
 )
 
 -- WHICHKEY
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 map("n", "<leader>wk", function()
-  vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
+    vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "whichkey query lookup" })
 
 
 -- COPILOT
 map("i", "<C-l>", function()
-  require("copilot.suggestion").accept()
+    require("copilot.suggestion").accept()
 end, { desc = "copilot complete" })
 map("i", "<C-h>", function()
-  require("copilot.suggestion").dismiss()
+    require("copilot.suggestion").dismiss()
 end, { desc = "copilot dismiss" })
 map("i", "<C-j>", function()
-  require("copilot.suggestion").next()
+    require("copilot.suggestion").next()
 end, { desc = "copilot next" })
 map("i", "<C-k>", function()
-  require("copilot.suggestion").prev()
+    require("copilot.suggestion").prev()
 end, { desc = "copilot prev" })
 map("i", "<C-;>", function()
-  require("copilot.suggestion").accept_word()
+    require("copilot.suggestion").accept_word()
 end, { desc = "copilot accept" })
 map("n", "<leader>tc", function()
     require("copilot.suggestion").toggle_auto_trigger()
@@ -108,30 +108,30 @@ end, { desc = "copilot toggle auto trigger" })
 
 
 -- LEAP
-map({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)', {desc = "leap forward"})
-map({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)' , {desc = "leap backward"})
-map({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)', {desc = "leap from window"})
+map({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)', { desc = "leap forward" })
+map({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)', { desc = "leap backward" })
+map({ 'n', 'x', 'o' }, 'gs', '<Plug>(leap-from-window)', { desc = "leap from window" })
 
 -- BLANKLINE
 map("n", "<leader>cc", function()
-  local config = { scope = {} }
-  config.scope.exclude = { language = {}, node_type = {} }
-  config.scope.include = { node_type = {} }
-  local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
+    local config = { scope = {} }
+    config.scope.exclude = { language = {}, node_type = {} }
+    config.scope.include = { node_type = {} }
+    local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
 
-  if node then
-    local start_row, _, end_row, _ = node:range()
-    if start_row ~= end_row then
-      vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
-      vim.api.nvim_feedkeys("_", "n", true)
+    if node then
+        local start_row, _, end_row, _ = node:range()
+        if start_row ~= end_row then
+            vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
+            vim.api.nvim_feedkeys("_", "n", true)
+        end
     end
-  end
 end, { desc = "blankline jump to current context" })
 
 
 -- LSP
 map("n", "<leader>ks", function()
-  vim.lsp.buf.signature_help()
+    vim.lsp.buf.signature_help()
 end, { desc = "lsp signature help" })
 
 

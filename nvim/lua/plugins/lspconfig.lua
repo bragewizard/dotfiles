@@ -9,7 +9,7 @@ return {
                 vim.lsp.diagnostic.on_publish_diagnostics, {
                     virtual_text = true,
                     underline = false,
-                    update_in_insert = false,
+                    update_in_insert = true,
                     -- signs = false
                 }
             )
