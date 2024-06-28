@@ -85,6 +85,7 @@ floating_modifier $mod
 # new_float none
 # Start a terminal
 bindsym $mod+Return exec kitty
+bindsym $mod+c exec kitty
 # bindsym $mod+f exec firefox
 # bindsym $mod+e exec dolphin
 

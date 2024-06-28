@@ -21,7 +21,13 @@ return {
                     enabled = true,
                     auto_trigger = true,
                     debounce = 75,
-                    keymap = {}
+                    keymap = {
+                        accept = "<A-l>",
+                        accept_word = "<A-;>",
+                        next =  "<A-j>",
+                        prev = "<A-k>",
+                        dismiss = "<A-h>",
+                    },
                 },
                 filetypes = {
                     yaml = false,
