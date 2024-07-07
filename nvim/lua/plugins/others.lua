@@ -1,5 +1,5 @@
 return {
-    {"nvim-lua/plenary.nvim"},
+    { "nvim-lua/plenary.nvim" },
     {
         "tpope/vim-surround",
         lazy = false,
@@ -20,15 +20,21 @@ return {
     },
     {
         "folke/zen-mode.nvim",
-        cmd = {'ZenMode'},
+        opts = {
+            window = {
+                width = 130,
+            },
+        },
+        cmd = { 'ZenMode' },
+        keys = { { '<leader>tz', desc = "Toggle Zen Mode" } },
     },
     {
         "lervag/vimtex",
-        ft = {"tex","md"},
+        ft = { "tex", "md" },
     },
     {
         "kaarmu/typst.vim",
-        ft = {"typst"},
+        ft = { "typst" },
     },
     {
         "ggandor/leap.nvim",
