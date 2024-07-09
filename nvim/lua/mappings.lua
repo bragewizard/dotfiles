@@ -48,7 +48,7 @@ map("v", "<leader>fm", function()
 end, { desc = "format files" })
 
 -- OTHER
-map("x", "p", "p:let @+=@0<CR>:let @\"=@0<CR>", { desc = "dont copy replaced text" })
+map("x", "p", "p:let @+=@0<CR>:let @\"=@0<CR>", { desc = "dont copy replaced text" , silent = true})
 
 
 -- COMMENTS
@@ -105,14 +105,14 @@ map("n", "<leader>tc", function()
 end, { desc = "copilot toggle auto trigger" })
 
 
-
+map("n", "<leader>tz", "<cmd>ZenMode<CR>" , { desc = "zen mode" })
 
 -- LEAP
 map({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)', { desc = "leap forward" })
 map({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)', { desc = "leap backward" })
 map({ 'n', 'x', 'o' }, 'gs', '<Plug>(leap-from-window)', { desc = "leap from window" })
 
--- BLANKLINE
+-- BLNKLINE
 map("n", "<leader>cc", function()
     local config = { scope = {} }
     config.scope.exclude = { language = {}, node_type = {} }

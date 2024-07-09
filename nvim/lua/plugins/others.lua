@@ -1,10 +1,6 @@
 return {
     { "nvim-lua/plenary.nvim" },
     {
-        "tpope/vim-surround",
-        lazy = false,
-    },
-    {
         "folke/which-key.nvim",
         keys = { "<leader>", "<c-r>", '"', "'", "`", "c", "v", "g" },
         cmd = "WhichKey",
@@ -22,11 +18,10 @@ return {
         "folke/zen-mode.nvim",
         opts = {
             window = {
-                width = 130,
+                width = 150,
             },
         },
         cmd = { 'ZenMode' },
-        keys = { { '<leader>tz', desc = "Toggle Zen Mode" } },
     },
     {
         "lervag/vimtex",
@@ -42,6 +37,7 @@ return {
         config = function()
             local leap = require('leap')
             leap.opts.special_keys.prev_target = '<backspace>'
+            leap.opts.special_keys.prev_group = '<backspace>'
             require('leap.user').set_repeat_keys('<enter>', '<backspace>')
         end,
     },

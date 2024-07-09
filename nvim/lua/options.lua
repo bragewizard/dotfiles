@@ -53,6 +53,8 @@ g.jukit_layout = {
     }
 }
 
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 -------------------------------------- options ------------------------------------------
 opt.laststatus = 3 -- global statusline
 opt.cmdheight = 0
@@ -62,13 +64,13 @@ opt.cursorline = true
 opt.guicursor = "i:hor20"
 opt.expandtab = true
 opt.relativenumber = false
-opt.numberwidth=4
+opt.numberwidth= 1
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.smartindent = true
 opt.autoindent = true
-opt.textwidth = 130
+opt.textwidth = 150
 opt.foldmethod = "indent"
 opt.foldnestmax = 1
 opt.foldmarker = "//<,//>"
@@ -97,6 +99,7 @@ opt.splitright = true
 opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true
+opt.wrap = false
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
@@ -153,6 +156,8 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     vim.bo.filetype = "wgsl"
   end,
 })
+
+
 
 -------------------------------------- commands ------------------------------------------
 
