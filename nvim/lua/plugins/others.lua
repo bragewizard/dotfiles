@@ -1,6 +1,10 @@
 return {
     { "nvim-lua/plenary.nvim" },
     {
+        "lambdalisue/vim-suda",
+        cmd = { "SudaRead", "SudaWrite" },
+    },
+    {
         "folke/which-key.nvim",
         keys = { "<leader>", "<c-r>", '"', "'", "`", "c", "v", "g" },
         cmd = "WhichKey",
