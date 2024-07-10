@@ -99,14 +99,11 @@ return {
                 filetypes = { "zig" },
             })
 
-            lspconfig.ccls.setup({
+            lspconfig.clangd.setup({
                 init_options = { documentFormatting = true },
                 on_attach = on_attach,
                 capabilities = capabilities,
                 filetypes = { "c", "cpp", "objc", "objcpp" },
-                settings = {
-                    rootMarkers = { ".ccls", ".git/" },
-                },
             })
 
             lspconfig.typst_lsp.setup({

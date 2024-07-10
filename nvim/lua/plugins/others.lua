@@ -37,8 +37,9 @@ return {
         config = function()
             local leap = require('leap')
             leap.opts.special_keys.prev_target = '<backspace>'
-            leap.opts.special_keys.prev_group = '<backspace>'
+            -- leap.opts.special_keys.prev_group = '<backspace>'
             require('leap.user').set_repeat_keys('<enter>', '<backspace>')
+
         end,
     },
 }

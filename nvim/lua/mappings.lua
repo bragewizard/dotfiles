@@ -48,17 +48,13 @@ map("v", "<leader>fm", function()
 end, { desc = "format files" })
 
 -- OTHER
-map("x", "p", "p:let @+=@0<CR>:let @\"=@0<CR>", { desc = "dont copy replaced text" , silent = true})
+map("x", "p", "p:let @+=@0<CR>:let @\"=@0<CR>", { desc = "dont copy replaced text", silent = true })
 
 
 -- COMMENTS
 map("n", "<leader>/", "gcc", { desc = "comment toggle", remap = true })
 map("v", "<leader>/", "gc", { desc = "comment toggle", remap = true })
 -- vim.api.nvim_set_keymap('i', '<S-CR>', '<C-o>o<C-o>:setlocal formatoptions+=ro<CR>', { noremap = true, silent = true })
-
--- NVIMTREE
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
 
 -- telescope
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
@@ -70,6 +66,7 @@ map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = 
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
+map("n", "<leader>ft", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", { desc = "telescope file browser" })
 map(
     "n",
     "<leader>fa",
@@ -105,7 +102,7 @@ map("n", "<leader>tc", function()
 end, { desc = "copilot toggle auto trigger" })
 
 
-map("n", "<leader>tz", "<cmd>ZenMode<CR>" , { desc = "zen mode" })
+map("n", "<leader>tz", "<cmd>ZenMode<CR>", { desc = "zen mode" })
 
 -- LEAP
 map({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)', { desc = "leap forward" })

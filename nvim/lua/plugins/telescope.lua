@@ -4,8 +4,9 @@ return {
         tag = "0.1.8",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
-            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
             "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-file-browser.nvim",
         },
         cmd = "Telescope",
         opts = {
@@ -47,6 +48,19 @@ return {
                     sort_lastused = true,
                     case_mode = "smart_case",
                 },
+                file_browser = {
+                    theme = "ivy",
+                    -- disables netrw and use telescope-file-browser in its place
+                    hijack_netrw = true,
+                    -- mappings = {
+                    --     ["i"] = {
+                    --         -- your custom insert mode mappings
+                    --     },
+                    --     ["n"] = {
+                    --         -- your custom normal mode mappings
+                    --     },
+                    -- },
+                },
             },
             pickers = {
                 buffers = {
@@ -58,6 +72,8 @@ return {
         config = function(_, opts)
             local telescope = require("telescope")
             telescope.setup(opts)
+            telescope.load_extension("file_browser")
+            telescope.load_extension("fzf")
         end,
     },
 }
