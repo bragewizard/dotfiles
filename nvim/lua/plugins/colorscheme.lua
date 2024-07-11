@@ -22,6 +22,19 @@ return {
                     StatusLine = { bg = pal.black1 },
                     WinSeparator = { bg = '#242932' },
                     VertSplit = { bg = '#242932' },
+                    TelescopePromptTitle = {
+                        bg = pal.yellow.base,
+                    },
+                    TelescopeResultsTitle = {
+                        bg = pal.yellow.base,
+                    },
+                    TelescopeSelection = {
+                        bg = pal.gray2,
+                    },
+                    TelescopeSelectionCaret = {
+                        fg = pal.yellow.base,
+                        bg = pal.gray2,
+                    },
                 },
                 cursorline = {
                     bold = false,

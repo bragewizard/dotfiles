@@ -18,7 +18,7 @@ return {
                     vimgrep_arguments = {
                         "rg",
                         "-L",
-                        "--color=never",
+                        -- "--color=never",
                         "--no-heading",
                         "--with-filename",
                         "--line-number",
@@ -26,7 +26,7 @@ return {
                         "--smart-case",
                     },
                     prompt_prefix = "🔍 ",
-                    selection_caret = "  ",
+                    selection_caret = "> ",
                     entry_prefix = "  ",
                     initial_mode = "normal",
                     selection_strategy = "reset",
@@ -34,13 +34,16 @@ return {
                     layout_strategy = "flex",
                     file_ignore_patterns = { "node_modules" },
                     path_display = { "truncate" },
-                    winblend = 0,
-                    border = {},
+                    -- winblend = 0,
+                    -- border = {},
                     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
                     color_devicons = true,
                     set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
                     mappings = {
-                        n = { ["q"] = actions.close },
+                        n = {
+                            ["q"] = actions.close,
+                            ["l"] = actions.select_default,
+                        },
                     },
                 },
                 extensions = {
@@ -57,7 +60,6 @@ return {
                         hijack_netrw = true,
                         mappings = {
                             ["n"] = {
-                                ["l"] = actions.select_default,
                                 ["h"] = fb_actions.goto_parent_dir,
                                 ["H"] = fb_actions.toggle_hidden,
                             },
@@ -68,7 +70,7 @@ return {
                     buffers = {
                         ignore_current_buffer = false,
                         sort_lastused = true,
-                    }
+                    },
                 },
             })
             telescope.load_extension("file_browser")
