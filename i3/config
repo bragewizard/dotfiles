@@ -1,4 +1,3 @@
-
 # Nordic colors.
 set $black      #191D24
 set $gray0      #242932
@@ -19,32 +18,23 @@ set $orange     #D08770
 set $yellow     #EBCB8B
 set $green      #A3BE8C
 set $magenta    #B48EAD
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# Status bar configuration
+
+# Use Winkey as modifier
 set $mod Mod4
 
 # Define volume control command
 set $volume pactl set-sink-volume @DEFAULT_SINK@
 
-# bar {
-#     status_command i3status
-#     font pango:DM Mono 10
-# }
-# Start Polybar, use default config location ~/.config/polybar/config
+# Start Polybar, use default config location ~/.config/polybar/config and other settings
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs1
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id feh --bg-fill ~/Pictures/laputa.png
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle'
 
-# Use Winkey as modifier
 # Font for window titles
 font pango:DM Sans 10
-# Use DM Mono for window titles
-# Set default border style for new windows to 1 pixel
+# Set default border style for new windows to 0 pixels
 for_window [class="^.*"] border pixel 0
-
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -53,11 +43,9 @@ for_window [class="^Pcmanfm$"] floating enable
 for_window [class="yakuake"] floating enable
 for_window [class="ark"] floating enable
 for_window [class="matplotlib"] floating enable
-for_window [title="win7"] floating enable; border none
 for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
-for_window [title="floating"] floating enable; border none
 for_window [class="mpv"] floating enable;
 
 # Change gap size
@@ -69,31 +57,15 @@ gaps bottom 4
 
 # Drag floating windows
 floating_modifier $mod
-# Use Mouse+$mod to drag floating windows to their wanted position
 
-# Set border and highlight colors to match the background
-# client.focused              #282828 #282828     #FFFFFF #282828 #282828
-# client.focused_inactive     #333333 #282828     #FFFFFF #404040 #404040
-# client.unfocused            #333333 #222222     #ffffff #333333 #333333
-# client.urgent               #2F343A #900000     #FFFFFF #900000 #900000
-# client.placeholder          #000000 #0C0C0C     #FFFFFF #000000 #0C0C0C
-# client.background           #282828
-# Hide title bars
-
-# Remove window borders
-# new_window none
-# new_float none
 # Start a terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+c exec kitty
-# bindsym $mod+f exec firefox
-# bindsym $mod+e exec dolphin
 
 # Close focused window
 bindsym $mod+q kill
 
-# Change focus
-bindsym $mod+h focus left
+# Change focundsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
@@ -162,27 +134,27 @@ bindsym $mod+Shift+e exit
 
 
 # resize window (you can also use the mouse for that)
-set $mode_resize Resize (h) -w, (j) +h, (k) -h, (l) +w, (Shift+h) -W, (Shift+j) +H, (Shift+k) -H, (Shift+l) + W
+set $mode_resize Resize (h) -w, (j) -h, (k) +h, (l) +w, (Shift+h) -W, (Shift+j) -H, (Shift+k) +H, (Shift+l) + W
         mode "$mode_resize" {
 
         bindsym h resize shrink width 64 px
-        bindsym j resize grow height 64 px
-        bindsym k resize shrink height 64 px
+        bindsym j resize shrink height 64 px
+        bindsym k resize grow height 64 px
         bindsym l resize grow width 64 px
 
         bindsym Left resize shrink width 64 px
-        bindsym Down resize grow height 64 px
-        bindsym Up resize shrink height 64 px
+        bindsym Down resize shrink height 64 px
+        bindsym Up resize grow height 64 px
         bindsym Right resize grow width 64 px
 
         bindsym Shift+h resize shrink width 10 px
-        bindsym Shift+j resize grow height 10 px
-        bindsym Shift+k resize shrink height 10 px
+        bindsym Shift+j resize shrink height 10 px
+        bindsym Shift+k resize grow height 10 px
         bindsym Shift+l resize grow width 10 px
 
         bindsym Shift+Left resize shrink width 10 px
-        bindsym Shift+Down resize grow height 10 px
-        bindsym Shift+Up resize shrink height 10 px
+        bindsym Shift+Down resize shrink height 10 px
+        bindsym Shift+Up resize grow height 10 px
         bindsym Shift+Right resize grow width 10 px
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -190,45 +162,11 @@ set $mode_resize Resize (h) -w, (j) +h, (k) -h, (l) +w, (Shift+h) -W, (Shift+j) 
 }
 
 bindsym $mod+r mode "$mode_resize
-# using plasma's logout screen instead of i3's
-# bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
-# Start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only includes applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+p exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec rofi -show run
-# Use Rofi to switch windows
 bindsym $mod+Tab exec rofi -show window
-
-# Change focus between monitors
 bindsym $mod+comma focus output left
+
 bindsym $mod+period focus output right
-
-
-
-
-
-# Set border and highlight colors to match the background
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Bind audio keys to pactl volume control
-
-# Volume control bindings
 bindsym XF86AudioRaiseVolume        exec --no-startup-id $volume +10%
 bindsym XF86AudioLowerVolume        exec --no-startup-id $volume -10%
 bindsym XF86AudioMute               exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -237,26 +175,10 @@ bindsym Shift+XF86AudioLowerVolume  exec --no-startup-id $volume -1%
 # Toggling mute with shift is the same as just pressing the mute button, so you may want to bind this to another action or just remove it.
 bindsym Shift+XF86AudioMute         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-
 bindsym XF86MonBrightnessUp exec brightnessctl set +2%
 bindsym XF86MonBrightnessDown exec brightnessctl set 2%-
-#
-# bindsym $mod+Control+x              exec $volume inc 10
-# bindsym $mod+Control+z              exec $volume dec 10
-# bindsym $mod+Control+Shift+x        exec $volume inc
-# bindsym $mod+Control+Shift+z        exec $volume dec
-# bindsym $mod+Control+m              exec $volume mute
-
-# Bind brightness keys to light interface
-# bindsym $mod+x                             exec $light inc 15
-# bindsym $mod+z                             exec $light dec 15
-# bindsym $mod+Shift+x                       exec $light inc 5
-# bindsym $mod+Shift+z                       exec $light dec 5
-#
 
 
-
-# Bind keys to switch to next workspace
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft workspace prev
 
@@ -284,18 +206,12 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-
-
 # Add resize keybindings in place of mode
 bindsym $mod+Control+h resize shrink width 40 px
-bindsym $mod+Control+k resize grow height 40 px
 bindsym $mod+Control+j resize shrink height 40 px
+bindsym $mod+Control+k resize grow height 40 px
 bindsym $mod+Control+l resize grow width 40 px
 bindsym $mod+Control+Left resize shrink width 40 px
-bindsym $mod+Control+Up resize grow height 40 px
 bindsym $mod+Control+Down resize shrink height 40 px
+bindsym $mod+Control+Up resize grow height 40 px
 bindsym $mod+Control+Right resize grow width 40 px
-bindsym $mod+Shift+Control+h resize shrink width 1 px or 1
-bindsym $mod+Shift+Control+j resize grow height 1 px or 1
-bindsym $mod+Shift+Control+k resize shrink height 1 px or 1
-bindsym $mod+Shift+Control+l resize grow width 1 px or 1
