@@ -51,7 +51,6 @@ return {
                         fuzzy = true,
                         override_generic_sorter = true,
                         override_file_sorter = true,
-                        sort_lastused = true,
                         case_mode = "smart_case",
                     },
                     file_browser = {
@@ -70,6 +69,7 @@ return {
                     buffers = {
                         ignore_current_buffer = false,
                         sort_lastused = true,
+                        sort_mru = true,
                     },
                 },
             })

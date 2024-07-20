@@ -66,6 +66,7 @@ bindsym $mod+c exec kitty
 bindsym $mod+q kill
 
 # Change focundsym $mod+h focus left
+bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
