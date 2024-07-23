@@ -20,8 +20,7 @@ return {
                     CursorLine = { bg = pal.black1 },
                     Visual = { bg = pal.black1 },
                     StatusLine = { bg = pal.black1 },
-                    WinSeparator = { bg = '#242932' },
-                    VertSplit = { bg = '#242932' },
+                    Folded = { bg = pal.black2 },
                     TelescopePromptTitle = {
                         bg = pal.yellow.base,
                     },

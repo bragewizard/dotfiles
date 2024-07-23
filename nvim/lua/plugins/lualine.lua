@@ -10,6 +10,7 @@ local function fmt_mode(s)
     return mode_map[s] or s
 end
 
+
 local text_hl
 local icon_hl
 local green
@@ -39,42 +40,6 @@ end
 
 local function get_short_cwd() return vim.fn.fnamemodify(vim.fn.getcwd(), ":~") end
 
-local tree = {
-    sections = {
-        lualine_a = {
-            {
-                "mode",
-                fmt = fmt_mode,
-                icon = { "" },
-                separator = { right = " ", left = "" },
-            },
-        },
-        lualine_b = {},
-        lualine_c = {
-            {
-                get_short_cwd,
-                padding = 0,
-                icon = { "   ", color = icon_hl },
-                color = text_hl,
-            },
-        },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {
-            {
-                "location",
-                icon = { "", align = "left" },
-            },
-            {
-                "progress",
-                icon = { "", align = "left" },
-                separator = { right = "", left = "" },
-            },
-        },
-    },
-    filetypes = { "NvimTree" },
-}
-
 local function telescope_text() return "Telescope" end
 
 local telescope = {
@@ -87,7 +52,14 @@ local telescope = {
                 separator = { right = " ", left = "" },
             },
         },
-        lualine_b = {},
+        lualine_b = {
+            {
+                get_short_cwd,
+                padding = 0,
+                icon = { "   ", color = icon_hl },
+                color = text_hl,
+            },
+        },
         lualine_c = {
             {
                 telescope_text,
@@ -141,7 +113,7 @@ return {
                         {
                             "branch",
                             color = text_hl,
-                            icon = { " ", color = icon_hl },
+                            icon = { "", color = icon_hl },
                             separator = "",
                             padding = 0,
                         },
@@ -213,6 +185,11 @@ return {
                                 spinner_color = green,
                             },
                         },
+                        {
+                            require("noice").api.status.mode.get,
+                            cond = require("noice").api.status.mode.has,
+                            icon = { " " },
+                        },
                     },
                     lualine_y = {},
                     lualine_z = {
@@ -235,7 +212,6 @@ return {
                 },
                 extensions = {
                     telescope,
-                    ["nvim-tree"] = tree,
                 },
             })
         end,

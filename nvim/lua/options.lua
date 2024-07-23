@@ -1,5 +1,6 @@
 local opt = vim.opt
 local g = vim.g
+-- local v = vim.v
 
 -------------------------------------- globals -----------------------------------------
 g.vimtex_syntax_conceal = {
@@ -56,8 +57,19 @@ g.jukit_layout = {
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 -------------------------------------- options ------------------------------------------
+
+-- local function custom_fold_expr(thisline)
+--     if match(thisline, '/\*') >= 0
+--       return 'a1'
+--     elseif match(thisline, '\*/') >= 0
+--       return 's1'
+--     else
+--       return '='
+--     endif
+-- end
+
 opt.laststatus = 3 -- global statusline
-opt.cmdheight = 0
+-- opt.cmdheight = 0
 opt.showmode = false
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
@@ -71,10 +83,12 @@ opt.softtabstop = 4
 opt.smartindent = true
 opt.autoindent = true
 opt.textwidth = 150
-opt.foldmethod = "indent"
+opt.foldmethod = "manual"
+opt.foldtext = ''
 opt.foldnestmax = 1
-opt.foldmarker = "//<,//>"
-opt.foldenable = false
+opt.foldminlines = 1
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevelstart = 0
 opt.formatoptions:remove({ 'r', 'o', 't' })
 opt.formatoptions:append({ 'c' })
 opt.conceallevel = 1
@@ -135,14 +149,14 @@ autocmd("FileType", {
 
 
 -- Ensure correct backgrond for lualine.
-vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+autocmd({ "BufWinEnter", "WinEnter" }, {
     callback = function(_) require("lualine").setup({}) end,
     pattern = { "*.*" },
     once = true,
 })
 
 
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
   pattern = "*",
   callback = function()
     vim.opt_local.formatoptions:remove({ 'r', 'o' })
@@ -150,7 +164,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.wgsl",
     callback = function()
     vim.bo.filetype = "wgsl"
@@ -158,7 +172,32 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 
+autocmd({"BufWritePost", "BufDelete"}, {
+  group = vim.api.nvim_create_augroup("RememberFolds", { clear = true }),
+  pattern = {"*"},
+  callback = function()
+    if vim.b.view_activated then
+      vim.cmd.mkview()
+    end
+  end
+})
 
+autocmd("BufRead", {
+  group = "RememberFolds",
+  pattern = {"*"},
+  callback = function()
+    if not vim.b.view_activated then
+      local filetype = vim.bo.filetype
+      local buftype = vim.bo.buftype
+      local ignore_filetypes = { "gitcommit", "gitrebase", "svg", "hgcommit" }
+
+      if buftype == "" and not vim.tbl_contains(ignore_filetypes, filetype) then
+        vim.b.view_activated = true
+        vim.cmd.loadview({ mods = { emsg_silent = true } })
+      end
+    end
+  end
+})
 -------------------------------------- commands ------------------------------------------
 
 function _G.toggle_diagnostics()
