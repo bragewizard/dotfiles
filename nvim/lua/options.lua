@@ -67,7 +67,7 @@ g.loaded_netrwPlugin = 1
 --       return '='
 --     endif
 -- end
-
+opt.shell = "/bin/zsh"
 opt.laststatus = 3 -- global statusline
 -- opt.cmdheight = 0
 opt.showmode = false

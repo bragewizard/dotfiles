@@ -132,6 +132,9 @@ map("n", "<leader>ks", function()
 end, { desc = "lsp signature help" })
 
 
+-- TERMINAL
+
+map("t", "<esc>", "<C-\\><C-n>", { desc = "terminal escape" })
 
 
 -- CMP

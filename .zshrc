@@ -3,23 +3,29 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="customagnoster"
 
-
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-
-
 plugins=(
-    vi-mode 
+    zsh-vi-mode 
     fzf
     git 
     zsh-autosuggestions 
     history-substring-search
 )
 
+function zvm_config() {
+    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+    ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+    ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+    ZVM_REPLACE_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+}
+
+
 source $ZSH/oh-my-zsh.sh
 source /usr/share/nvm/init-nvm.sh
+
+
 # User configuration
 
 TERM=xterm-256color
@@ -56,6 +62,7 @@ alias uiologin="ssh -YC bragewi@login.ifi.uio.no"
 alias uiofolder="sshfs bragewi@login.ifi.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
 alias framerate="xrandr --output eDP-1 --mode 2560x1440 --rate"
 alias texinit="cp ~/Templates/init.tex ."
+alias neofetch="neofetch --ascii ~/Documents/asciiart/skull.txt --ascii_colors 7"
 
 pyactivate() {
     source ~/.pyenvs/$1/bin/activate

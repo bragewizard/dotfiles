@@ -30,6 +30,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id feh --bg-fill ~/Pictures/laputa.png
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle'
+exec_always --no-startup-id redshift
 
 # Font for window titles
 font pango:DM Sans 10
@@ -50,9 +51,10 @@ for_window [class="mpv"] floating enable;
 
 # Change gap size
 gaps outer 8
-gaps inner 10
-# gaps left 220
-gaps top 30
+gaps inner 8
+gaps left 4
+gaps right 4
+gaps top 22
 gaps bottom 4
 
 # Drag floating windows
@@ -116,7 +118,7 @@ bindsym $mod+Shift+c restart
 set $Locker i3lock-fancy && sleep 1
 
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system l → LOCK      e →  LOGOUT      s →  SUSPEND      h →  HIBERNATE      r →  REBOOT      Shift + s →  SHUTDOWN
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -135,7 +137,7 @@ bindsym $mod+Shift+e exit
 
 
 # resize window (you can also use the mouse for that)
-set $mode_resize Resize (h) -w, (j) -h, (k) +h, (l) +w, (Shift+h) -W, (Shift+j) -H, (Shift+k) +H, (Shift+l) + W
+set $mode_resize h →  -width      j →  -height      k →  +heigt      l →  +width      Modify with SHIFT for finer control
         mode "$mode_resize" {
 
         bindsym h resize shrink width 64 px
