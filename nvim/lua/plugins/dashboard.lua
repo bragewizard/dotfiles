@@ -45,10 +45,10 @@ return {
                         {
                             icon = '  ',
                             icon_hl = '@variable',
-                            desc = 'Browser',
+                            desc = 'Tree',
                             group = 'Label',
                             action = 'Telescope file_browser',
-                            key = 'b',
+                            key = 't',
                         },
                         {
                             icon = '󰈔 ',
@@ -56,7 +56,7 @@ return {
                             desc = 'New Buffer',
                             group = 'Label',
                             action = 'enew',
-                            key = 'n',
+                            key = 'b',
                         },
                     },
                     project = {
