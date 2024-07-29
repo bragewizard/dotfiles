@@ -61,6 +61,7 @@ return {
                             ["n"] = {
                                 ["h"] = fb_actions.goto_parent_dir,
                                 ["H"] = fb_actions.toggle_hidden,
+                                ['a'] = fb_actions.create,
                             },
                         },
                     },

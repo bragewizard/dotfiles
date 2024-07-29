@@ -52,9 +52,10 @@ cmd open &{{
     esac
 }}
 
-# mkdir command. See wiki if you want it to select created dir
-map a :push %mkdir<space>
-
+cmd mkdir $mkdir $*
+cmd touch $touch $*
+map A push :mkdir<space>
+map a push :touch<space>
 # define a custom 'rename' command without prompt for overwrite
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 # map r push :rename<space>
@@ -75,10 +76,9 @@ cmd delete ${{
 
 # use '<delete>' key for either 'trash' or 'delete' command
 map <delete> trash
-map d trash
 map D delete
 # map <delete> delete
-
+map . set hidden!
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
