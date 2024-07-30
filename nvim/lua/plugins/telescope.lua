@@ -60,7 +60,7 @@ return {
                         mappings = {
                             ["n"] = {
                                 ["h"] = fb_actions.goto_parent_dir,
-                                ["H"] = fb_actions.toggle_hidden,
+                                ["."] = fb_actions.toggle_hidden,
                                 ['a'] = fb_actions.create,
                             },
                         },
@@ -74,8 +74,8 @@ return {
                     },
                 },
             })
-            telescope.load_extension("file_browser")
             telescope.load_extension("fzf")
+            telescope.load_extension("file_browser")
         end,
     },
 }

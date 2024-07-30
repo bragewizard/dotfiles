@@ -74,6 +74,7 @@ mlnodesfile() {
     scp -J bragewi@login.uio.no "$1" bragewi@ml1.hpc.uio.no:
 }
 
+# alias lf="~/.config/lf/lfrun"
 lfcd () {
     # `command` is needed in case `lfcd` is aliased to `lf`
     cd "$(command lf -print-last-dir "$@")"

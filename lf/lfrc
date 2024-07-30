@@ -1,7 +1,13 @@
-set icons true
-set color256 true
-
-
+# =============================================================================
+# Settings
+# Ref: https://github.com/gokcehan/lf/wiki/Tips
+# =============================================================================
+set icons          true
+set ignorecase     true
+# set drawbox        true
+set dircounts      true
+set info           size:time
+# set color256       true
 # interpreter for shell commands
 set shell sh
 
@@ -24,6 +30,8 @@ set ifs "\n"
 # leave some space at the top and the bottom of the screen
 set scrolloff 10
 
+set previewer ~/.config/lf/preview_kitty
+set cleaner ~/.config/lf/cleaner_kitty
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
 set cursorpreviewfmt "\033[7;2m"
 
@@ -37,9 +45,10 @@ map ` !true
 map x $$f
 map X !$f
 
+map ~ cd ~
+map t cd ~/.local/share/Trash/files
 # dedicated keys for file opener actions
-map o &mimeopen $f
-map O $mimeopen --ask $f
+map o $mimeopen --ask $f
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to

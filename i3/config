@@ -19,6 +19,9 @@ set $yellow     #EBCB8B
 set $green      #A3BE8C
 set $magenta    #B48EAD
 
+set $border     #c0b7b1
+set $border2    #c0b7b1
+
 # Use Winkey as modifier
 set $mod Mod4
 
@@ -37,13 +40,14 @@ default_border none
 default_floating_border none
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 1
-for_window [floating] border pixel 1
+# for_window [floating] border pixel 1
 
-client.focused $cyan $cyan $cyan $cyan $cyan
-client.unfocused $gray5 $gray5 $gray5 $gray5 $gray5
-client.focused_inactive $gray5 $gray5 $gray5 $gray5 $gray5
-client.urgent $red $red $red $red $red
-client.placeholder $gray5 $gray5 $gray5 $gray5 $gray5
+# client.focused $cyan $cyan $cyan $cyan $cyan
+client.focused $border $border $border $border $border
+client.unfocused $border2 $border2 $border2 $border2 $border2
+client.focused_inactive $border $border $border $border $border
+client.urgent $yellow $yellow $yellow $yellow $yellow
+client.placeholder $border2 $border2 $border2 $border2 $border2
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -127,7 +131,7 @@ bindsym $mod+Shift+c restart
 set $Locker i3lock-fancy -pg -f RobotoMono-Nerd-Font-Medium && sleep 1
 
 
-set $mode_system l → 󰌾    e → 󰗽     s → 󰤄    h → 󰒲    r → 󰜉    Shift+s → 󰐥 
+set $mode_system    l → 󰌾    e → 󰗽     s → 󰤄    h → 󰒲    r → 󰜉    Shift+s → 󰐥 
 
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"

@@ -133,7 +133,9 @@ end, { desc = "lsp signature help" })
 
 
 -- TERMINAL
-
+map("n", "<leader>\\l","<cmd>ToggleTermSendCurrentLine<CR>", { desc = "terminal send current line" })
+map("v", "<leader>\\v","<cmd>ToggleTermSendVisualSelection<CR>", { desc = "terminal send visual" })
+map("v", "<leader>\\V","<cmd>ToggleTermSendVisualLines<CR>", { desc = "terminal send visual lines" })
 map("t", "<esc>", "<C-\\><C-n>", { desc = "terminal escape" })
 
 
