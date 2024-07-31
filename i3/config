@@ -31,7 +31,8 @@ set $volume pactl set-sink-volume @DEFAULT_SINK@
 # Start Polybar, use default config location ~/.config/polybar/config and other settings
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom -b
-exec_always --no-startup-id feh --bg-fill ~/Pictures/laputa.png
+# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/pexels.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall2.jpg
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle'
 
 # Font for window titles
