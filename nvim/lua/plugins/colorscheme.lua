@@ -18,7 +18,7 @@ return {
                 swap_backgrounds = false,
                 override = {
                     CursorLine = { bg = pal.black1 },
-                    Visual = { bg = pal.black1 },
+                    Visual = { bg = pal.gray2 },
                     StatusLine = { bg = pal.black1 },
                     Folded = { bg = pal.black2 },
                     TelescopePromptTitle = {

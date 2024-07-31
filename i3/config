@@ -19,8 +19,8 @@ set $yellow     #EBCB8B
 set $green      #A3BE8C
 set $magenta    #B48EAD
 
-set $border     #c0b7b1
-set $border2    #c0b7b1
+set $border     #c0c0c0
+set $border2    #c0c0c0
 
 # Use Winkey as modifier
 set $mod Mod4
@@ -34,6 +34,7 @@ exec_always --no-startup-id picom -b
 # exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/pexels.jpg
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall2.jpg
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle'
+exec_always --no-startup-id ~/bin/i3-alternating &
 
 # Font for window titles
 # font pango:Inter 10
@@ -109,8 +110,10 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+g split h
 # Split in vertical orientation
 bindsym $mod+v split v
-
-# Fullscreen mode toggle
+# take screenshot
+bindsym $mod+u exec scrot -u -b -q 100 -e 'mv $f ~/Pictures/Screenshots/'
+bindsym $mod+i exec scrot -s -q 100 -e 'mv $f ~/Pictures/Screenshots/'
+bindsym $mod+o exec scrot -M 0 -q 100 -e 'mv $f ~/Pictures/Screenshots/'
 bindsym $mod+f fullscreen toggle
 
 # Change container layout (stacked, tabbed, toggle split)
