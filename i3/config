@@ -32,7 +32,10 @@ set $volume pactl set-sink-volume @DEFAULT_SINK@
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom -b
 # exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/pexels.jpg
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall2.jpg
+# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall2.jpg
+# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/ascciwall.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall.png
+
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle'
 exec_always --no-startup-id ~/bin/i3-alternating &
 
