@@ -34,15 +34,17 @@ exec_always --no-startup-id picom -b
 # exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/pexels.jpg
 # exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall2.jpg
 # exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/ascciwall.png
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall.png
+# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/gruvbox.jpg
+
 
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle'
 exec_always --no-startup-id ~/bin/i3-alternating &
 
 # Font for window titles
 # font pango:Inter 10
-default_border none
-default_floating_border none
+default_border pixel 1
+default_floating_border pixel 1
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 1
 # for_window [floating] border pixel 1
@@ -189,6 +191,7 @@ set $mode_resize resize [←↑↓→]  [hjkl]
 
 bindsym $mod+r mode "$mode_resize
 bindsym $mod+d exec rofi -show run
+bindsym $mod+z exec rofi -show filebrowser
 bindsym $mod+Tab exec rofi -show window
 # bindsym $mod+comma focus output left
 # bindsym $mod+period focus output right

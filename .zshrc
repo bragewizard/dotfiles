@@ -60,8 +60,6 @@ export VISUAL='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias uiologin="ssh -YC bragewi@login.ifi.uio.no"
 alias uiofolder="sshfs bragewi@login.ifi.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
-alias framerate="xrandr --output eDP-1 --mode 2560x1440 --rate"
-alias texinit="cp ~/Templates/init.tex ."
 alias neofetch="neofetch --ascii ~/Documents/asciiart/skull.txt --ascii_colors 7"
 
 pyactivate() {
