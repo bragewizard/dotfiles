@@ -46,7 +46,7 @@ map x $$f
 map X !$f
 
 map ~ cd ~
-map t cd ~/.local/share/Trash/files
+map T cd ~/.local/share/Trash/files
 # dedicated keys for file opener actions
 map o $mimeopen --ask $f
 

@@ -44,7 +44,12 @@ return {
             leap.opts.special_keys.prev_target = '<backspace>'
             -- leap.opts.special_keys.prev_group = '<backspace>'
             require('leap.user').set_repeat_keys('<enter>', '<backspace>')
-
         end,
     },
+    {
+        "folke/todo-comments.nvim",
+        lazy = false,
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = { }
+    }
 }

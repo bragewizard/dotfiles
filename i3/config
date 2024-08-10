@@ -38,7 +38,7 @@ exec_always --no-startup-id picom -b
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/gruvbox.jpg
 
 
-exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle'
+exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle,ctrl:swapcaps'
 exec_always --no-startup-id ~/bin/i3-alternating &
 
 # Font for window titles
@@ -211,6 +211,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 2%-
 
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft workspace prev
+bindsym $mod+Shift+bracketright move workspace to output right
+bindsym $mod+Shift+bracketleft move workspace to output left
 
 # Switch to workspace
 bindsym $mod+b workspace number 1
