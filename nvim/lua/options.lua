@@ -117,7 +117,7 @@ opt.wrap = false
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
-opt.whichwrap:append "<>[]hl"
+-- opt.whichwrap:append "<>[]hl"
 
 
 -- PROVIDERS
