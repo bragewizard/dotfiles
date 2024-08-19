@@ -44,6 +44,9 @@ map ` !true
 # execute current file (must be executable)
 map x $$f
 map X !$f
+map <c-d> scroll-down
+map <c-e> scroll-up
+map <c-y> half-down
 
 map ~ cd ~
 map T cd ~/.local/share/Trash/files

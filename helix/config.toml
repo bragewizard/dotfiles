@@ -1,0 +1,52 @@
+theme = "autumn"
+
+[editor]
+mouse = false
+
+[editor.smart-tab]
+supersede-menu = false
+
+[editor.cursor-shape]
+insert = "underline"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = true
+
+
+[keys.normal]
+"C-j" = ["scroll_down", "scroll_down", "scroll_down"]
+"C-k" = ["scroll_up","scroll_up","scroll_up"]
+"D" = "delete_char_backward"
+"esc" = ["keep_primary_selection", "collapse_selection"]
+tab = "move_parent_node_end"
+S-tab = "move_parent_node_start"
+
+
+[keys.select]
+tab = "extend_parent_node_end"
+S-tab = "extend_parent_node_start"
+
+
+[keys.insert]
+"A-x" = "normal_mode"     # Maps Alt-X to enter normal mode
+j = { k = "normal_mode" } # Maps `jk` to exit insert mode"C-j"
+S-tab = "extend_parent_node_start"
+A-tab = "insert_tab"
+
+
+[keys.normal.g]
+j = "goto_window_bottom"
+k = "goto_window_top"
+# "x" = ["select_textobject_inner \"",":pipe-to xargs xgd-open"]
+
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+
+[editor.lsp]
+auto-signature-help = false

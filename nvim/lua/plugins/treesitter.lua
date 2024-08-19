@@ -11,8 +11,6 @@ return {
                     "vim",
                     "lua",
                     "python",
-                    "gdscript",
-                    "godot_resource",
                     "bash",
                     "bibtex",
                     "markdown",

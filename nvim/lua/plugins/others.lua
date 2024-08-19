@@ -19,21 +19,9 @@ return {
         end,
     },
     {
-        "folke/zen-mode.nvim",
-        opts = {
-            window = {
-                width = 150,
-            },
-        },
-        cmd = { 'ZenMode' },
-    },
-    {
-        "lervag/vimtex",
-        ft = { "tex", "md" },
-    },
-    {
         "kaarmu/typst.vim",
         ft = { "typst" },
+        lazy = false,
     },
     {
         "ggandor/leap.nvim",

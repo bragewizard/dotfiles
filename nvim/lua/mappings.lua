@@ -13,10 +13,17 @@ map("i", "JK", "<ESC>", { desc = "escape insert mode" })
 
 -- GENERAL NORMAL MODE
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+map("n", "<C-h>", "4zh", { desc = "scroll left" })
+map("n", "<C-l>", "4zl", { desc = "scroll rigth" })
+map("n", "<C-j>", "4<C-e>", { desc = "scroll down" })
+map("n", "<C-k>", "4<C-y>", { desc = "scroll up" })
+map("n", "<C-Left>", "4zh", { desc = "scroll left" })
+map("n", "<C-Right>", "4zl", { desc = "scroll right" })
+map("n", "<C-Up>", "4<C-y>", { desc = "scroll up" })
+map("n", "<C-Down>", "4<C-e>", { desc = "scroll down" })
+map("n", "<C-e>", "4<C-y>", { desc = "scroll up" })
+map("n", "<C-d>", "4<C-e>", { desc = "scroll down" })
+map("n", "<C-y>", "<C-d>", { desc = "scroll half page down" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "file save" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "file copy whole" })
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
@@ -26,9 +33,6 @@ map("n", "<leader>q", "q", { desc = "record macro" })
 map("n", "<leader>l", "i<SPACE><ESC>", { desc = "insert space" })
 map("n", "<leader>j", "i<CR><ESC>", { desc = "break line" })
 map("n", "q", ":noh<CR>", { desc = "noh", silent = true })
-map("n", "<C-e>", "4<C-y>", { desc = "scroll up" })
-map("n", "<C-d>", "4<C-e>", { desc = "scroll down" })
-map("n", "<C-y>", "<C-d>", { desc = "scroll half page down" })
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "lsp diagnostic loclist" })
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 map("n", "<leader>fm", function()
@@ -40,8 +44,16 @@ map("v", "<", "<gv", { desc = "indent left" })
 map("v", ">", ">gv", { desc = "indent right" })
 map("v", "<leader>ds", vim.diagnostic.setloclist, { desc = "lsp diagnostic loclist" })
 map("v", "<leader>kh", "<cmd>call v:lua.toggle_diagnostics()<CR>", { desc = "toggle diagnostics" })
-map("v", "<C-e>", "4<C-y>", { desc = "scroll down" })
-map("v", "<C-d>", "4<C-e>", { desc = "scroll up" })
+map("v", "<C-h>", "4zh", { desc = "scroll left" })
+map("v", "<C-l>", "4zl", { desc = "scroll rigth" })
+map("v", "<C-j>", "4<C-e>", { desc = "scroll down" })
+map("v", "<C-k>", "4<C-y>", { desc = "scroll up" })
+map("v", "<C-Left>", "4zh", { desc = "scroll left" })
+map("v", "<C-Right>", "4zl", { desc = "scroll right" })
+map("v", "<C-Up>", "4<C-y>", { desc = "scroll up" })
+map("v", "<C-Down>", "4<C-e>", { desc = "scroll down" })
+map("v", "<C-e>", "4<C-y>", { desc = "scroll up" })
+map("v", "<C-d>", "4<C-e>", { desc = "scroll down" })
 map("v", "<C-y>", "<C-d>", { desc = "scroll half page down" })
 map("v", "q", ":noh<CR>", { desc = "noh", silent = true })
 map("v", "<leader>q", "q", { desc = "record macro" })
@@ -83,28 +95,12 @@ map("n", "<leader>wk", function()
 end, { desc = "whichkey query lookup" })
 
 
--- COPILOT
--- map("i", "<C-l>", function()
---     require("copilot.suggestion").accept()
--- end, { desc = "copilot complete" })
--- map("i", "<C-h>", function()
---     require("copilot.suggestion").dismiss()
--- end, { desc = "copilot dismiss" })
--- map("i", "<C-j>", function()
---     require("copilot.suggestion").next()
--- end, { desc = "copilot next" })
--- map("i", "<C-k>", function()
---     require("copilot.suggestion").prev()
--- end, { desc = "copilot prev" })
--- map("i", "<C-;>", function()
---     require("copilot.suggestion").accept_word()
--- end, { desc = "copilot accept" })
 map("n", "<leader>tc", function()
     require("copilot.suggestion").toggle_auto_trigger()
 end, { desc = "copilot toggle auto trigger" })
 
 
-map("n", "<leader>tz", "<cmd>ZenMode<CR>", { desc = "toggle zen mode" })
+map("n", "<leader>z", ":lua _G.toggle_goyo()<CR>", { desc = "zen mode" , silent = true})
 
 -- LEAP
 map({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)', { desc = "leap forward" })
@@ -133,6 +129,18 @@ map("n", "<leader>ks", function()
     vim.lsp.buf.signature_help()
 end, { desc = "lsp signature help" })
 
+map("n", "<leader>e", function()
+    require("nabla").popup()
+end, { desc = "render equation" })
+
+map("v", "<leader>e", function()
+    require("nabla").popup()
+end, { desc = "render equation" })
+
+map("n", "<leader>te", function()
+    require("nabla").toggle_virt()
+end, { desc = "toggle equation" })
+
 
 -- TERMINAL
 map("n", "<leader>\\l","<cmd>ToggleTermSendCurrentLine<CR>", { desc = "terminal send current line" })
@@ -141,182 +149,3 @@ map("v", "<leader>\\V","<cmd>ToggleTermSendVisualLines<CR>", { desc = "terminal 
 map("t", "<esc>", "<C-\\><C-n>", { desc = "terminal escape" })
 
 
--- CMP
--- mapping = {
--- ["<C-p>"] = cmp.mapping.select_prev_item(),
--- ["<C-n>"] = cmp.mapping.select_next_item(),
--- ["<C-u>"] = cmp.mapping.scroll_docs(-4),
--- ["<C-d>"] = cmp.mapping.scroll_docs(4),
--- ["<C-Space>"] = cmp.mapping.complete(),
--- ["<C-e>"] = cmp.mapping.close(),
--- ["<Tab>"] = cmp.mapping(function(fallback)
---   if cmp.visible() then
---     cmp.confirm {
---                 behavior = cmp.ConfirmBehavior.Insert,
---                 select   = true,
---             }
---   elseif require("luasnip").expand_or_jumpable() then
---     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
---   else
---     fallback()
---   end
--- end, {
---   "i",
---   "s",
--- }),
--- ["<S-Tab>"] = cmp.mapping(function(fallback)
---   if require("luasnip").jumpable(-1) then
---     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
---   else
---     fallback()
---   end
--- end, {
---   "i",
---   "s",
--- }),
--- },
-
-
---
-
--- end, { desc = "buffer close" })
---         ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
---         ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
---         ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
---         ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
---
---     v = {
---         ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
---         ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
-
---     },
---     x = {
---         ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
---         ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
---     },
--- }
-
-
--- M.lspconfig = {
---     plugin = true,
---
---     -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
---
---     n = {
---         ["gD"] = {
---             function()
---                 vim.lsp.buf.declaration()
---             end,
---             "LSP declaration",
---         },
---
---         ["gd"] = {
---             function()
---                 vim.lsp.buf.definition()
---             end,
---             "LSP definition",
---         },
---
---         ["K"] = {
---             function()
---                 vim.lsp.buf.hover()
---             end,
---             "LSP hover",
---         },
---
---         ["gi"] = {
---             function()
---                 vim.lsp.buf.implementation()
---             end,
---             "LSP implementation",
---         },
---
-
---
---         ["<leader>D"] = {
---             function()
---                 vim.lsp.buf.type_definition()
---             end,
---             "LSP definition type",
---         },
---
---         ["<leader>ra"] = {
---             function()
---                 require("nvchad.renamer").open()
---             end,
---             "LSP rename",
---         },
---
---         ["<leader>ca"] = {
---             function()
---                 vim.lsp.buf.code_action()
---             end,
---             "LSP code action",
---         },
---
---         ["gr"] = {
---             function()
---                 vim.lsp.buf.references()
---             end,
---             "LSP references",
---         },
---
---         ["<leader>f"] = {
---             function()
---                 vim.diagnostic.open_float { border = "rounded" }
---             end,
---             "Floating diagnostic",
---         },
---
---         ["[d"] = {
---             function()
---                 vim.diagnostic.goto_prev { float = { border = "rounded" } }
---             end,
---             "Goto prev",
---         },
---
---         ["]d"] = {
---             function()
---                 vim.diagnostic.goto_next { float = { border = "rounded" } }
---             end,
---             "Goto next",
---         },
---
---         ["<leader>q"] = {
---             function()
---                 vim.diagnostic.setloclist()
---             end,
---             "Diagnostic setloclist",
---         },
---
---         ["<leader>wa"] = {
---             function()
---                 vim.lsp.buf.add_workspace_folder()
---             end,
---             "Add workspace folder",
---         },
---
---         ["<leader>wr"] = {
---             function()
---                 vim.lsp.buf.remove_workspace_folder()
---             end,
---             "Remove workspace folder",
---         },
---
---         ["<leader>wl"] = {
---             function()
---                 print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
---             end,
---             "List workspace folders",
---         },
---     },
---
---     v = {
---         ["<leader>ca"] = {
---             function()
---                 vim.lsp.buf.code_action()
---             end,
---             "LSP code action",
---         },
---     },
--- }

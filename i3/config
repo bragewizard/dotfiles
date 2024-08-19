@@ -38,8 +38,8 @@ exec_always --no-startup-id picom -b
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/gruvbox.jpg
 
 
-exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle,ctrl:swapcaps'
-exec_always --no-startup-id ~/bin/i3-alternating &
+exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle,caps:swapescape'
+exec_always --no-startup-id ~/.local/bin/i3-alternating &
 
 # Font for window titles
 # font pango:Inter 10
