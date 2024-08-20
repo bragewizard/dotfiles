@@ -1,7 +1,20 @@
-theme = "autumn"
+theme = "autumnV2"
 
 [editor]
 mouse = false
+color-modes = true
+popup-border = "all"
+auto-format = false
+
+[editor.whitespace.render]
+space = "none"
+tab = "none"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+newline = "⏎"
 
 [editor.smart-tab]
 supersede-menu = false
