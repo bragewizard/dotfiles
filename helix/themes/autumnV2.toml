@@ -7,11 +7,11 @@
 # Jens Getreu ported and optimised the color theme for the Helix editor.
 # Author: Jens Getreu <getreu at web.de>
 
-"attribute" = "my_turquoise1"
+"attribute" = "my_turquoise"
 "comment" = { fg = "my_gray5" }
-"constant.character.escape" = "my_turquoise1"
+"constant.character.escape" = "my_turquoise"
 "constant" = "my_white3"
-"constant.numeric" = "my_turquoise1"
+"constant.numeric" = "my_turquoise"
 "constructor" = "my_yellow1"
 "debug" = "my_yellow2"
 "diagnostic.error" = { underline = { style = "curl", color = "my_red" } }
@@ -28,13 +28,13 @@
 "function" = "my_yellow1"
 "hint" = "my_gray6"
 "info" = "my_yellow2"
-"keyword" = "my_red"
+"keyword" = "my_pink"
 "label" = "my_red"
 "markup.bold" = { modifiers = ["bold"] }
 "markup.heading" = "my_yellow1"
 "markup.italic" = { modifiers = ["italic"] }
 "markup.link.text" = "my_white2"
-"markup.link.url" = "my_turquoise2"
+"markup.link.url" = "my_turquoise"
 "markup.list" = "my_white2"
 "markup.quote" = "my_brown"
 "markup.raw" = "my_green"
@@ -94,11 +94,14 @@ my_gray7      = "#c8c8c8" # Light Foreground
 my_gray8      = "#e8e8e8" # Light Background
 my_green      = "#99be70" # Strings, Inherited Class, Markup Code, Diff Inserted
 my_red        = "#F05E48" # Keywords, Storage, Selector, Diff Changed
-my_turquoise1 = "#86c1b9" # Support, Regular Expressions, Escape Characters
-my_turquoise2 = "#72a59e" # URL
+my_turquoise  = "#86c1b9" # Support, Regular Expressions, Escape Characters
+my_orange     = "#FF9913" # URL
 my_white1     = "#F3F2CC" # Default Foreground, Caret, Delimiters, Operators
 my_white2     = "#F3F2CC" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 my_white3     = "#F3F2CC" # Classes, Markup Bold, Search Text Background
 my_white4     = "#7e7d6a" # Cursor match
 my_yellow1    = "#FAD566" # Functions, Methods, Attribute IDs, Headings
 my_yellow2    = "#ffff9f" # Debug, Info
+my_teal       = "#3DED97"
+my_pink       = "#FE7F9C"
+my_purple     = "#AC94F4"

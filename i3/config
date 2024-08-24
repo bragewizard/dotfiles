@@ -190,7 +190,7 @@ set $mode_resize resize [←↑↓→]  [hjkl]
 }
 
 bindsym $mod+r mode "$mode_resize
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
 bindsym $mod+z exec rofi -show filebrowser
 bindsym $mod+Tab exec rofi -show window
 # bindsym $mod+comma focus output left

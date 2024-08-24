@@ -10,6 +10,8 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = nvim
+	editor = hx
 [http]
 	postBuffer = 157286400
+[pull]
+	ff = only
