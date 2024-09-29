@@ -83,7 +83,7 @@
 [palette]
 my_black      = "#212121" # Cursorline
 my_brown      = "#cfba8b" # Member variables, Quotes
-my_gray0      = "#252525" # Default Background
+my_gray0      = "#202020" # Default Background
 my_gray1      = "#2b2b2b" # Ruler
 my_gray2      = "#323232" # Lighter Background (Used for status bars, line number and folding marks)
 my_gray3      = "#404040" # Selection Background
