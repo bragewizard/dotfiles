@@ -1,4 +1,4 @@
-theme = "autumnV2"
+theme = "hex_steelV2"
 
 [editor]
 mouse = false
@@ -35,9 +35,9 @@ D = "delete_char_backward"
 esc = ["keep_primary_selection", "collapse_selection"]
 tab = "move_parent_node_end"
 S-tab = "move_parent_node_start"
-w = "move_next_sub_word_start"
-e = "move_next_sub_word_end"
-b = "move_prev_sub_word_start"
+# w = "move_next_sub_word_start"
+# e = "move_next_sub_word_end"
+# b = "move_prev_sub_word_start"
 # x = "extend_to_line_bounds"
 X = "extend_to_line_end"
 s = "expand_selection"
@@ -63,6 +63,10 @@ A-tab = "insert_tab"
 j = "goto_window_bottom"
 k = "goto_window_top"
 x = ["expand_selection", ":pipe-to sed 's/^.\\(.*\\).$/\\1/' | xargs xdg-open"]
+
+[keys.normal.space]
+f = "file_picker_in_current_directory"
+F = "file_picker"
 
 
 [editor.statusline]

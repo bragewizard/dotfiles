@@ -28,7 +28,7 @@
 "function" = "my_yellow1"
 "hint" = "my_gray6"
 "info" = "my_yellow2"
-"keyword" = "my_pink"
+"keyword" = "my_red"
 "label" = "my_red"
 "markup.bold" = { modifiers = ["bold"] }
 "markup.heading" = "my_yellow1"
@@ -104,4 +104,5 @@ my_yellow1    = "#FAD566" # Functions, Methods, Attribute IDs, Headings
 my_yellow2    = "#ffff9f" # Debug, Info
 my_teal       = "#3DED97"
 my_pink       = "#FE7F9C"
+my_blue       = "#AFDCEC"
 my_purple     = "#AC94F4"

@@ -13,12 +13,6 @@ return {
         end,
     },
     {
-        "nvim-tree/nvim-web-devicons",
-        config = function()
-            require("nvim-web-devicons").setup()
-        end,
-    },
-    {
         "kaarmu/typst.vim",
         ft = { "typst" },
         lazy = false,
@@ -34,10 +28,4 @@ return {
             require('leap.user').set_repeat_keys('<enter>', '<backspace>')
         end,
     },
-    {
-        "folke/todo-comments.nvim",
-        lazy = false,
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = { }
-    }
 }

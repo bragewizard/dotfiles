@@ -35,7 +35,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 export EDITOR=hx
 export SUDO_EDITOR=hx
 export VISUAL=hx
-export BAT_THEME=gruvbox-dark
+export BAT_THEME=hexsteel
 
 
 
