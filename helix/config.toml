@@ -6,6 +6,9 @@ color-modes = true
 popup-border = "all"
 auto-format = false
 
+[editor.smart-tab]
+enable = false
+
 [editor.whitespace.render]
 space = "none"
 tab = "none"
