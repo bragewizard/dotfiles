@@ -103,6 +103,7 @@ return {
                 init_options = { documentFormatting = true },
                 on_attach = on_attach,
                 capabilities = capabilities,
+                cmd = {"clangd --query-driver=/usr/bin/avr-gcc"},
                 filetypes = { "c", "cpp", "objc", "objcpp" },
             })
 

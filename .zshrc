@@ -23,43 +23,17 @@ function zvm_config() {
 
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/nvm/init-nvm.sh
-
-
-# User configuration
+# source /usr/share/nvm/init-nvm.sh
 
 TERM=xterm-256color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
-# export MANPATH="/usr/local/man:$MANPATH"
-#
+VIRTUAL_ENV_DISABLE_PROMPT=1
 export EDITOR=hx
 export SUDO_EDITOR=hx
 export VISUAL=hx
 export BAT_THEME=hexsteel
 
 
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias uiologin="ssh -YC bragewi@login.ifi.uio.no"
 alias uiofolder="sshfs bragewi@login.ifi.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
 alias neofetch="neofetch --ascii ~/Documents/asciiart/skull.txt --ascii_colors 7"
@@ -86,12 +60,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
-# # End of lines configured by zsh-newuser-install
-# # The following lines were added by compinstall
 zstyle :compinstall filename '/home/brage/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-#
-#
