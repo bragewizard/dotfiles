@@ -33,7 +33,7 @@ export SUDO_EDITOR=hx
 export VISUAL=hx
 export BAT_THEME=hexsteel
 
-
+alias py="python"
 alias uiologin="ssh -YC bragewi@login.ifi.uio.no"
 alias uiofolder="sshfs bragewi@login.ifi.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
 alias neofetch="neofetch --ascii ~/Documents/asciiart/skull.txt --ascii_colors 7"
