@@ -19,8 +19,8 @@ set $yellow     #EBCB8B
 set $green      #A3BE8C
 set $magenta    #B48EAD
 
-set $border     #c0c0c0
-set $border2    #c0c0c0
+set $border     #909090
+set $border2    #909090
 
 # Use Winkey as modifier
 set $mod Mod4
@@ -41,14 +41,13 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/Skeleton_reading_wall.jpg
 
 
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle,caps:swapescape'
-exec_always --no-startup-id ~/.local/bin/i3-alternating &
+# exec_always --no-startup-id ~/.local/bin/i3-alternating &
 
 # Font for window titles
 # font pango:Inter 10
-default_border pixel 1
-default_floating_border pixel 1
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 1
+# new_window normal 1
 # for_window [floating] border pixel 1
 
 # client.focused $cyan $cyan $cyan $cyan $cyan
@@ -74,12 +73,12 @@ for_window [class="mpv"] floating enable;
 floating_minimum_size 50 x 50
 floating_maximum_size -1 x -1
 # Change gap size
-gaps outer 8
-gaps inner 10
-gaps left 4
-gaps right 4
-gaps top 22
-gaps bottom 4
+gaps outer 0
+gaps inner -2
+gaps left 0
+gaps right 0
+gaps top 20
+gaps bottom 0
 
 # Drag floating windows
 floating_modifier $mod

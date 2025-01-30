@@ -23,12 +23,15 @@ input "type:keyboard" {
   repeat_rate 60
   repeat_delay 140
 }
-seat seat0 xcursor_theme breeze_cursors 24
-output * bg /home/brage/Pictures/imgur1.jpg fill
+# seat seat0 xcursor_theme breeze_cursors 24
+output * bg /home/brage/Pictures/Skeleton_reading_wall.jpg fill
+output HDMI-A-1 mode 2560x1440@144Hz scale 1
+output eDP-1 mode 2560x1440@60Hz scale 1
+
 set $menu wmenu-run
+bindsym $mod+d exec $menu
 # exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle,caps:swapescape'
 # exec_always --no-startup-id ~/.local/bin/i3-alternating &
-exec_always --
 # Font for window titles
 # font pango:Inter 10
 default_border pixel 1
@@ -185,7 +188,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+c restart
+bindsym $mod+Shift+c reload
 set $Locker i3lock-fancy -pg -f RobotoMono-Nerd-Font-Medium && sleep 1
 
 
@@ -239,19 +242,12 @@ set $mode_resize resize [←↑↓→]  [hjkl]
 }
 
 bindsym $mod+r mode "$mode_resize
-bindsym $mod+d exec rofi -show drun
-bindsym $mod+z exec rofi -show filebrowser
-bindsym $mod+Tab exec rofi -show window
-# bindsym $mod+comma focus output left
-# bindsym $mod+period focus output right
-
 
 bindsym XF86AudioRaiseVolume        exec --no-startup-id $volume +10%
 bindsym XF86AudioLowerVolume        exec --no-startup-id $volume -10%
 bindsym XF86AudioMute               exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym Shift+XF86AudioRaiseVolume  exec --no-startup-id $volume +1%
 bindsym Shift+XF86AudioLowerVolume  exec --no-startup-id $volume -1%
-# Toggling mute with shift is the same as just pressing the mute button, so you may want to bind this to another action or just remove it.
 bindsym Shift+XF86AudioMute         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym XF86MonBrightnessUp exec brightnessctl set +2%

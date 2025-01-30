@@ -21,6 +21,7 @@ function zvm_config() {
     ZVM_REPLACE_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
 }
 
+. /usr/share/z/z.sh
 
 source $ZSH/oh-my-zsh.sh
 # source /usr/share/nvm/init-nvm.sh
@@ -28,12 +29,16 @@ source $ZSH/oh-my-zsh.sh
 TERM=xterm-256color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 VIRTUAL_ENV_DISABLE_PROMPT=1
-export EDITOR=hx
-export SUDO_EDITOR=hx
-export VISUAL=hx
+export EDITOR=helix
+export TERMINAL=kitty
+export SUDO_EDITOR=helix
+export VISUAL=helix
 export BAT_THEME=hexsteel
+# export XDG_RUNTIME_DIR=/run/user/$(id -u)
+# export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
 
 alias py="python"
+alias hx="helix"
 alias uiologin="ssh -YC bragewi@login.ifi.uio.no"
 alias uiofolder="sshfs bragewi@login.ifi.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
 alias neofetch="neofetch --ascii ~/Documents/asciiart/skull.txt --ascii_colors 7"

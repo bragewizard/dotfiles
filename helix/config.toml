@@ -6,9 +6,6 @@ color-modes = true
 popup-border = "all"
 auto-format = false
 
-[editor.smart-tab]
-enable = false
-
 [editor.whitespace.render]
 space = "none"
 tab = "none"
@@ -19,39 +16,24 @@ newline = "none"
 [editor.whitespace.characters]
 newline = "⏎"
 
-
 [editor.cursor-shape]
 insert = "underline"
 normal = "block"
 select = "block"
 
 [editor.file-picker]
-hidden = true
-
+hidden = false
 
 [keys.normal]
 C-j = ["scroll_down", "scroll_down", "scroll_down"]
 C-k = ["scroll_up","scroll_up","scroll_up"]
 D = "delete_char_backward"
 esc = ["keep_primary_selection", "collapse_selection"]
-# w = "move_next_sub_word_start"
-# e = "move_next_sub_word_end"
-# b = "move_prev_sub_word_start"
-# x = "extend_to_line_bounds"
 X = "extend_to_line_end"
 s = "expand_selection"
 
-
 [keys.select]
-# w = "extend_next_sub_word_start"
-# e = "extend_next_sub_word_end"
-# b = "extend_prev_sub_word_start"
 X = "extend_to_line_end"
-
-
-[keys.insert]
-j = { k = "normal_mode" } # Maps `jk` to exit insert mode"C-j"
-
 
 [keys.normal.g]
 j = "goto_window_bottom"
@@ -62,13 +44,12 @@ x = ["expand_selection", ":pipe-to sed 's/^.\\(.*\\).$/\\1/' | xargs xdg-open"]
 [keys.normal.space]
 f = "file_picker_in_current_directory"
 F = "file_picker"
-
+K = "signature_help"
 
 [editor.statusline]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
-
 [editor.lsp]
-auto-signature-help = true
+auto-signature-help = false
