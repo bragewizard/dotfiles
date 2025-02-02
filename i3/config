@@ -45,7 +45,7 @@ exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggl
 
 # Font for window titles
 # font pango:Inter 10
-# hide_edge_borders smart
+hide_edge_borders smart
 for_window [class="^.*"] border pixel 1
 # new_window normal 1
 # for_window [floating] border pixel 1

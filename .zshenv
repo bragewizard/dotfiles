@@ -1,5 +1,0 @@
-export EDITOR="nvim"
-export VISUAL="nvim"
-export READER="zathura"
-export BROWSER="firefox"
-export TERMINAL="kitty"

@@ -1,104 +1,32 @@
-
-set $border     #c0c0c0
-set $border2    #c0c0c0
-
+set $border     #909090
+set $border2    #909090
 # Use Winkey as modifier
 set $mod Mod4
-
 # Define volume control command
 set $volume pactl set-sink-volume @DEFAULT_SINK@
 
-# Start Polybar, use default config location ~/.config/polybar/config and other settings
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec_always --no-startup-id picom -b
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/pexels.jpg
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall2.jpg
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/ascciwall.png
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/wall.png
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/gruvbox.jpg
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/imgur1.jpg
+exec_always --no-startup-id ~/dotfiles/yambar/launch.sh
+exec_always --no-startup-id gammastep
+# exec_always --no-startup-id yambar
+
 input "type:keyboard" {
   xkb_layout us,no
   xkb_options grp:win_space_toggle,caps:swapescape
   repeat_rate 60
   repeat_delay 140
 }
-# seat seat0 xcursor_theme breeze_cursors 24
+
+input "type:touchpad" {
+       tap enabled
+       natural_scroll enabled
+}
+
 output * bg /home/brage/Pictures/Skeleton_reading_wall.jpg fill
 output HDMI-A-1 mode 2560x1440@144Hz scale 1
 output eDP-1 mode 2560x1440@60Hz scale 1
 
-set $menu wmenu-run
+set $menu tofi-drun
 bindsym $mod+d exec $menu
-# exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle,caps:swapescape'
-# exec_always --no-startup-id ~/.local/bin/i3-alternating &
-# Font for window titles
-# font pango:Inter 10
-default_border pixel 1
-default_floating_border pixel 1
-# hide_edge_borders smart
-for_window [class="^.*"] border pixel 1
-# for_window [floating] border pixel 1
-bar {
-	# Disable clicking on the bar's workspace buttons
-	#$mybind		button1		nop
-	#$mybind		button2		nop
-	#$mybind		button3		nop
-	#$mybind		button4		nop
-	#$mybind		button5		nop
-	#$mybind		button6		nop
-	#$mybind		button7		nop
-	# Allows the bar to be displayed only on this screen
-	#output eDP		
-	# Shows tray icons only on the instance of the bar that is on this screen.
-	tray_output eDP
-	# Put the bar at the top of the screen.
-	position top
-	# What command to use to get the text to draw on the bar.
-	#status_command "cat /dev/urandom"	# That is actually really fun.
-	
-	colors {
-		# Bar colors. See Sway documentation for what is what: man 5 sway
-		# Default colors:
-		#background	#000000
-		#statusline	#ffffff
-		#separator	#666666
-		#Class	-	-	border	backgr.	text
-		#focused_workspace	#4c7899	#285577	#ffffff
-		#active_workspace	#333333	#5f676a	#ffffff
-		#inactive_workspace	#333333	#222222	#888888
-		#urgent_workspace	#2f343a	#900000	#ffffff
-		#binding_mode		#2f343a	#900000	#ffffff
-
-		# Default colors, adjusted to match high contrast edits seen
-		# farther down in the config.
-		#background	#000000
-		#statusline	#ffffff
-		#separator	#666666
-		##Class	-	-	border	backgr.	text
-		#focused_workspace	#8888FF	#335577	#ffffff
-		#active_workspace	#5F676A	#333333	#ffffff
-		#inactive_workspace	#222222	#111111 #888888
-		#urgent_workspace	#2f343a	#900000	#ffffff
-		#binding_mode		#2f343a	#900000	#ffffff
-
-		# And switching red and blue channels in those default colors.
-		# Also messed with urgent and binding mode colors.
-		background	#000000
-		statusline	#ffffff
-		separator	#666666
-		#Class	-	-	border	backgr.	text
-		focused_workspace	#FF8888	#775533	#ffffff
-		active_workspace	#6A675F	#333333	#ffffff
-		inactive_workspace	#222222	#111111 #888888
-		urgent_workspace	#8888FF	#233597	#ffffff
-		binding_mode		#88FF88 #239735	#ffffff
-	}
-
-	# Sway specific stuff
-	height 19
-	status_padding 0
-}
 
 # client.focused $cyan $cyan $cyan $cyan $cyan
 client.focused $border $border $border $border $border
@@ -109,49 +37,46 @@ client.placeholder $border2 $border2 $border2 $border2 $border2
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-for_window [class="feh"] floating enable
-for_window [class="^Pcmanfm$"] floating enable
+for_window [class="PcManFM"] floating enable
 for_window [class="yakuake"] floating enable
 for_window [class="ark"] floating enable
 for_window [class="matplotlib"] floating enable
-for_window [class="pyvectorgfx"] floating enable
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
 for_window [class="mpv"] floating enable;
 
 floating_minimum_size 50 x 50
 floating_maximum_size -1 x -1
+
+default_floating_border pixel 2
+default_border pixel 1
+titlebar_border_thickness 0
+hide_edge_borders both
+
+# smart_borders on
+# smart_gaps on
 # Change gap size
-gaps outer 8
-gaps inner 10
-gaps left 4
-gaps right 4
-gaps top 22
-gaps bottom 4
+gaps outer  0
+gaps inner  0
+# gaps top    2
+# gaps bottom 2
+# gaps right  2
+# gaps left   2
 
-# Drag floating windows
 floating_modifier $mod
-
 # Start a terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+t exec kitty
-
 # Close focused window
 bindsym $mod+q kill
-
 # Change focundsym $mod+h focus left
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
 # Move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -162,35 +87,27 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
 # Split in horizontal orientation
 bindsym $mod+g split h
 # Split in vertical orientation
 bindsym $mod+v split v
 # take screenshot
-bindsym $mod+u exec scrot -u -b -q 100 -e 'mv $f ~/Pictures/Screenshots/'
-bindsym $mod+i exec scrot -s -q 100 -e 'mv $f ~/Pictures/Screenshots/'
-bindsym $mod+o exec scrot -M 0 -q 100 -e 'mv $f ~/Pictures/Screenshots/'
 bindsym $mod+f fullscreen toggle
-
 # Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
 # Toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
-
+bindsym $mod+Shift+f floating toggle; \
+    [app_id=".*" floating con_id=__focused__] border pixel 2; \
+    [app_id=".*" tiling con_id=__focused__] border pixel 1
 # Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
 # Focus the parent container
 bindsym $mod+a focus parent
-
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+c reload
 set $Locker i3lock-fancy -pg -f RobotoMono-Nerd-Font-Medium && sleep 1
-
 
 set $mode_system    l → 󰌾    e → 󰗽     s → 󰤄    h → 󰒲    r → 󰜉    Shift+s → 󰐥 
 
@@ -210,8 +127,6 @@ mode "$mode_system" {
 
 bindsym $mod+Escape mode "$mode_system"
 bindsym $mod+Shift+e exit
-
-
 # resize window (you can also use the mouse for that)
 set $mode_resize resize [←↑↓→]  [hjkl]
         mode "$mode_resize" {
