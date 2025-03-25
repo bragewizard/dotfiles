@@ -43,12 +43,12 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/Skeleton_reading_wall.jpg
 exec_always --no-startup-id setxkbmap -layout us,no -option 'grp:win_space_toggle,caps:swapescape'
 # exec_always --no-startup-id ~/.local/bin/i3-alternating &
 
-# Font for window titles
-# font pango:Inter 10
-hide_edge_borders smart
-for_window [class="^.*"] border pixel 1
-# new_window normal 1
-# for_window [floating] border pixel 1
+hide_edge_borders both
+default_floating_border pixel 2
+default_border pixel 1
+
+for_window [class=".*"] border pixel 1
+# titlebar_border_thickness 0
 
 # client.focused $cyan $cyan $cyan $cyan $cyan
 client.focused $border $border $border $border $border
@@ -60,6 +60,7 @@ client.placeholder $border2 $border2 $border2 $border2 $border2
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="feh"] floating enable
+for_window [class="Valdala"] floating enable
 for_window [class="^Pcmanfm$"] floating enable
 for_window [class="yakuake"] floating enable
 for_window [class="ark"] floating enable
@@ -74,7 +75,7 @@ floating_minimum_size 50 x 50
 floating_maximum_size -1 x -1
 # Change gap size
 gaps outer 0
-gaps inner -2
+gaps inner 0
 gaps left 0
 gaps right 0
 gaps top 20

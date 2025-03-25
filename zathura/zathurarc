@@ -72,12 +72,13 @@ set render-loading-fg           "#ebdbb2" # fg
 set recolor-lightcolor          "#202020" # bg
 set recolor-darkcolor           "#d8d8d8" # fg
 set recolor-keephue             true      # keep original color
+set recolor-reverse-video       true
 set default-bg                  "#1d1d1d"
 
 #
 # Startup options
 #
-set window-height 1350
-set window-width 1100
+set window-height 1400
+set window-width 990
 set adjust-open width
 set recolor true

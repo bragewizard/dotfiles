@@ -10,8 +10,7 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = helix
-	pager = bat
+	editor = hx
 [http]
 	postBuffer = 157286400
 [pull]

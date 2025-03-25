@@ -14,20 +14,17 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "RobotoMono Nerd Font Medium"
+	font = "Liga SFMonoNerdFont SemiBold"
 
 	# Point size of text.
 	font-size = 12
-
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
 	# "font-feature-settings" property.
 	#
 	# Examples:
 	#
-	# font-features = "smcp, c2sc" (all small caps)
 	# font-features = "liga 0" (disable ligatures)
-	# font-features = ""
 
 	# Comma separated list of OpenType font variation settings to apply
 	# to variable fonts. The format is similar to the CSS
@@ -103,7 +100,7 @@
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
-	selection-color = #70A090
+	selection-color = #EBCB8B
 	selection-background = #00000000
 	selection-background-padding = 0
 	selection-background-corner-radius = 0

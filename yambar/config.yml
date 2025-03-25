@@ -4,6 +4,9 @@
 # For X11/i3, you'll want to replace calls to swaymsg with i3-msg, and
 # the sway-xkb module with the xkb module.
 roboto: &roboto Inter Semibold:pixelsize=16"
+# roboto: &roboto Departure Mono:pixelsize=16"
+# roboto: &roboto Liga SFMonoNerdFont Medium:pixelsize=16"
+# roboto: &roboto Pixel Code:pixelsize=14"
 yellow: &yellow EBCB8BFF
 
 # This is THE bar configuration
@@ -16,29 +19,26 @@ bar:
   font: *roboto
   monitor: "${MONITOR}"
 
-  foreground: b0b0b0ff
-  background: 202020ff
-  border:
-    bottom-width: 2
-    color: 909090ff
-    margin: 0
-    top-margin: 0
+  foreground: e0e0e0ff
+  background: 282828ff
 
   left:
     - i3:
         sort: ascending
         anchors: # Not used (directly) by f00bar; used here to avoid duplication
           - string: &i3_common {margin: 0, on-click: "swaymsg --quiet workspace {name}"}
-          - string: &default {<<: *i3_common, text: "   {name}   "}
+          - string: &default {<<: *i3_common, text: " {name} "}
           - focused: &focused
               foreground: 202020FF
               deco:
                 stack:
                   - background:
                       color: *yellow
+          - unfocused: &unfocused
+              foreground: e0e0e0ff
           - invisible: &invisible {foreground: ffffff55}
           - urgent: &urgent
-              foreground: 000000ff
+              foreground: ffff80ff
           - map: &i3_mode
               default:
                 - string:
@@ -53,47 +53,51 @@ bar:
             map:
               conditions:
                 state == focused:   {string: {<<: [*default, *focused]}}
-                state == unfocused: {string: {<<: *default}}
+                state == unfocused: {string: {<<: [*default, *unfocused]}}
+                state == visible:   {string: {<<: [*default, *unfocused]}}
                 state == invisible: {string: {<<: [*default, *invisible]}}
                 state == urgent:    {string: {<<: [*default, *urgent]}}
           current:
             map : {<<: *i3_mode}
   # center:
+  #   - i3:
+  #       content:
+  #         current: { string: {text: "{application}"}}
   right:
-    - network:
-        content:
-          map:
-            default: {empty: {}}
-            conditions:
-              name == enp4s0f4u1u1:
-                map:
-                  conditions:
-                    ~carrier: {empty: {}}
-                    carrier:
-                      map:
-                        default: {string: {text: 󰈀 , font: *roboto, foreground: *yellow}}
-                        conditions:
-                          state == up && ipv4 != "": {string: {text: 󰈀 , font: *roboto, foreground: *yellow}}
-    - network:
-        poll-interval: 1000
-        content:
-          map:
-            default: {empty: {}}
-            conditions:
-              name == wlp2s0:
-                map:
-                  default: {string: {text:  , font: *roboto, foreground: *yellow}}
-                  conditions:
-                    state == down: {string: {text:  , font: *roboto, foreground: *yellow}}
-                    state == up:
-                      map:
-                        default:
-                          - string: {text:  , font: *roboto, foreground: *yellow}
-                          # - string: {text: "{ssid}"}
+    # - network:
+    #     content:
+    #       map:
+    #         default: {empty: {}}
+    #         conditions:
+    #           name == enp4s0f4u1u1:
+    #             map:
+    #               conditions:
+    #                 ~carrier: {empty: {}}
+    #                 carrier:
+    #                   map:
+    #                     default: {string: {text: 󰈀 , font: *roboto, foreground: *yellow}}
+    #                     conditions:
+    #                       state == up && ipv4 != "": {string: {text: 󰈀 , font: *roboto, foreground: *yellow}}
+    # - network:
+    #     poll-interval: 1000
+    #     content:
+    #       map:
+    #         default: {empty: {}}
+    #         conditions:
+    #           name == wlp2s0:
+    #             map:
+    #               default: {string: {text:  , font: *roboto, foreground: *yellow}}
+    #               conditions:
+    #                 state == down: {string: {text:  , font: *roboto, foreground: *yellow}}
+    #                 state == up:
+    #                   map:
+    #                     default:
+    #                       - string: {text:  , font: *roboto, foreground: *yellow}
+    #                       # - string: {text: "{ssid}"}
 
-                        conditions:
-                          ipv4 == "":
-                            - string: {text:  , font: *roboto, foreground: *yellow}
+    #                     conditions:
+    #                       ipv4 == "":
+    #                         - string: {text:  , font: *roboto, foreground: *yellow}
                             # - string: {text: "{ssid}", foreground: ffffff66}
     - pipewire:
         content:
@@ -106,14 +110,12 @@ bar:
                       list:
                         spacing: 0
                         items:
-                          - string: {text: "󰝟 {cubic_volume}%"}
+                          - string: {text: "   {cubic_volume}%"}
                     ~muted:
                         ramp:
                           tag: linear_volume
                           items:
-                            - string: {text: "  {cubic_volume}%"}
-                            - string: {text: "  {cubic_volume}%"}
-                            - string: {text: "  {cubic_volume}%"}
+                            - string: {text: "   {cubic_volume}%"}
     - sway-xkb:
         identifiers: [5426:624:Razer_Razer_Blade_Keyboard]
         content:
@@ -133,17 +135,17 @@ bar:
                 - ramp:
                     tag: capacity
                     items:
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                      - string: {text: , foreground: *yellow, font: *roboto}
-                - string: {text: "{capacity}%"}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                      - string: {text:   , foreground: *yellow, font: *roboto}
+                - string: {text: "  {capacity}%"}
         content:
           map:
             conditions:
@@ -152,23 +154,23 @@ bar:
               state == discharging:
                 <<: *discharging
               state == charging:
-                - string: {text: , foreground: *yellow, font: *roboto}
-                - string: {text: "{capacity}%"}
+                - string: {text:   , foreground: *yellow, font: *roboto}
+                - string: {text: " {capacity}%"}
               state == full:
-                - string: {text: , foreground: *yellow, font: *roboto}
-                - string: {text: "{capacity}%"}
+                - string: {text:   , foreground: *yellow, font: *roboto}
+                - string: {text: "  {capacity}%"}
               state == "not charging":
                 - ramp:
                     tag: capacity
                     items:
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                      - string: {text:  , foreground: *yellow, font: *roboto}
-                - string: {text: "{capacity}%"}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                      - string: {text:    , foreground: *yellow, font: *roboto}
+                - string: {text: " {capacity}%"}
