@@ -20,6 +20,7 @@ input "type:touchpad" {
        tap enabled
        tap_button_map lrm
        natural_scroll enabled
+       dwt disabled
 }
 
 output * bg /home/brage/Pictures/Skeleton_reading_wall.jpg fill
