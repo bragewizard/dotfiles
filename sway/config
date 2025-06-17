@@ -5,6 +5,8 @@ set $mod Mod4
 # Define volume control command
 set $volume pactl set-sink-volume @DEFAULT_SINK@
 
+exec_always systemctl --user import-environment DISPLAY
+exec_always systemctl --user restart xdg-desktop-portal-gtk.service
 exec_always --no-startup-id ~/dotfiles/yambar/launch.sh
 exec_always --no-startup-id gammastep
 # exec_always --no-startup-id yambar

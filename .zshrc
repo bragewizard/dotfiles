@@ -1,7 +1,8 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="customagnoster"
+# ZSH_THEME="customagnoster"
+ZSH_THEME="bira"
 
 plugins=(
     fzf
@@ -31,10 +32,6 @@ alias ll='exa -alF --icons --color=always --group-directories-first'
 alias la='exa -a --icons --color=always --group-directories-first'
 alias l='exa -F --icons --color=always --group-directories-first'
 alias l.='exa -a | egrep "^\."'
-
-pyactivate() {
-    source ~/.pyenvs/$1/bin/activate
-}
 
 set -o vi
 HISTFILE=~/.histfile
