@@ -15,5 +15,3 @@
 	postBuffer = 157286400
 [pull]
 	ff = only
-[safe]
-	directory = /home/brage/IFI/IN5180
