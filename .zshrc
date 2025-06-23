@@ -15,15 +15,16 @@ source $ZSH/oh-my-zsh.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 VIRTUAL_ENV_DISABLE_PROMPT=1
-export EDITOR=hx
+export EDITOR=helix
 export BROWSER=zen
 export TERMINAL=kitty
 export TERM=kitty
-export SUDO_EDITOR=hx
-export VISUAL=hx
+export SUDO_EDITOR=helix
+export VISUAL=helix
 export BAT_THEME=hexsteel
 
 alias py="python"
+alias hx="helix"
 alias uiologin="ssh -YC bragewi@login.uio.no"
 alias uiofolder="sshfs bragewi@login.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
 alias fastfetch="fastfetch -l ~/dotfiles/ascii/skull.txt --logo-color-1 yellow"

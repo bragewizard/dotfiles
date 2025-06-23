@@ -10,7 +10,7 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = hx
+	editor = helix
 [http]
 	postBuffer = 157286400
 [pull]
