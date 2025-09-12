@@ -3,7 +3,7 @@
 
 # For X11/i3, you'll want to replace calls to swaymsg with i3-msg, and
 # the sway-xkb module with the xkb module.
-roboto: &roboto Inter Semibold:pixelsize=16"
+roboto: &roboto Geist:weight=medium:pixelsize=16"
 # roboto: &roboto Departure Mono:pixelsize=16"
 # roboto: &roboto Liga SFMonoNerdFont Medium:pixelsize=16"
 # roboto: &roboto Pixel Code:pixelsize=14"
@@ -110,17 +110,17 @@ bar:
                       list:
                         spacing: 0
                         items:
-                          - string: {text: "   {cubic_volume}%"}
+                          - string: {text: "    {cubic_volume}%"}
                     ~muted:
                         ramp:
                           tag: linear_volume
                           items:
-                            - string: {text: "   {cubic_volume}%"}
+                            - string: {text: "    {cubic_volume}%"}
     - sway-xkb:
         identifiers: [5426:624:Razer_Razer_Blade_Keyboard]
         content:
-          - string: {text:  , font: *roboto, foreground: *yellow}
-          - string: {text: "{layout}"}
+          - string: {text:    , font: *roboto, foreground: *yellow}
+          - string: {text: "   {layout}"}
     - clock:
         time-format: "%a %d %H:%M"
         content:
@@ -145,7 +145,7 @@ bar:
                       - string: {text:   , foreground: *yellow, font: *roboto}
                       - string: {text:   , foreground: *yellow, font: *roboto}
                       - string: {text:   , foreground: *yellow, font: *roboto}
-                - string: {text: "  {capacity}%"}
+                - string: {text: "   {capacity}%"}
         content:
           map:
             conditions:
@@ -155,10 +155,10 @@ bar:
                 <<: *discharging
               state == charging:
                 - string: {text:   , foreground: *yellow, font: *roboto}
-                - string: {text: " {capacity}%"}
+                - string: {text: "  {capacity}%"}
               state == full:
                 - string: {text:   , foreground: *yellow, font: *roboto}
-                - string: {text: "  {capacity}%"}
+                - string: {text: "   {capacity}%"}
               state == "not charging":
                 - ramp:
                     tag: capacity
