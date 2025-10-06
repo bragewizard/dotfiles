@@ -1,32 +1,6 @@
 set window-title-basename "true"
 set selection-clipboard "clipboard"
 
-# Dracula color theme for Zathura
-# Swaps Foreground for Background to get a light version if the user prefers
-
-#
-# Dracula color theme
-#
-# black      #191D24
-# gray0      #242932
-# gray1      #2E3440
-# gray2      #3B4252
-# gray3      #434C5E
-# gray4      #4C566A
-# gray5      #60728A
-# white0     #D8DEE9
-# white1     #E5E9F0
-# white2     #ECEFF4
-# blue0      #5E81AC
-# blue1      #81A1C1
-# blue2      #88C0D0
-# cyan       #8FBCBB
-# red        #BF616A
-# orange     #D08770
-# yellow     #EBCB8B
-# green      #A3BE8C
-# magenta    #B48EAD
-
 set notification-error-bg       "#242932" # bg
 set notification-error-fg       "#fb4934" # bright:red
 set notification-warning-bg     "#292832" # bg
@@ -69,11 +43,11 @@ set render-loading-fg           "#ebdbb2" # fg
 #
 
 # Recolor book content's color
-set recolor-lightcolor          "#202020" # bg
-set recolor-darkcolor           "#d8d8d8" # fg
-set recolor-keephue             true      # keep original color
+set recolor-lightcolor          "#1d1d1d" # bg
+set recolor-darkcolor           "#a0a0a0" # fg
+set recolor-keephue             true # keep original color
 set recolor-reverse-video       true
-set default-bg                  "#1d1d1d"
+set default-bg                  "#000000"
 
 #
 # Startup options
