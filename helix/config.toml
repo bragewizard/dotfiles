@@ -1,13 +1,11 @@
 theme = "hex_steelV2"
 
 [editor]
-mouse = false
+mouse = true
 color-modes = true
 popup-border = "all"
 auto-format = true
-soft-wrap.enable = true
-soft-wrap.max-wrap = 120
-text-width = 100
+text-width = 120
 scrolloff = 10
 auto-pairs = false
 
@@ -25,6 +23,13 @@ newline = "·"
 insert = "underline"
 normal = "block"
 select = "block"
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+wrap-indicator = ""  # set wrap-indicator to "" to hide it
+wrap-at-text-width = true
 
 # s and d becomes navigation keys
 # a replaces d as deletion
