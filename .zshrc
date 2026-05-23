@@ -21,8 +21,12 @@ export TERMINAL=kitty
 export TERM=kitty
 export SUDO_EDITOR=helix
 export VISUAL=helix
-export BAT_THEME=hexsteel
+export BAT_THEME=ansi
+export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:~/.cargo/bin/
+export PATH=$PATH:~/.local/bin/
+export PATH=$PATH:~/.local/share/vivado/2025.2/Vivado/bin/
+export PATH=$PATH:~/.local/share/vivado/2025.2/Vitis/bin/
 
 alias py="python"
 alias hx="helix"

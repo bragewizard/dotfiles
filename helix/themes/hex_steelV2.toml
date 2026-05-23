@@ -1,4 +1,3 @@
-
 "comment" = { fg = "comment" }
 "comment.block.documentation" = { bg = "comment_doc", modifiers = ["italic"] }
 "comment.line.documentation" = { bg = "comment_doc", modifiers = ["italic"] }
@@ -90,40 +89,10 @@
 "markup.raw" = { fg = "t4" }
 
 [palette]
-# t1 = "#0e0e0d"
-# t2 = "#202020"
-# t3 = "#606060"
-# t4 = "#909090"
-# t5 = "#727b7c"
-# t6 = "#6e8789"
-# t7 = "#d85c60" #red
-# t8 = "#9bc1bb"
-# t9 = "#b5c5c5"
-# t10 = "#c3c3bd"
-# t11 = "#f78c5e"
-
-# highlight = "#f23672"
-# highlight_two = "#f69c3c"
-# highlight_three = "#d4d987"
-
-# selection = "#4a9aa6"
 selection_fg = "#080a0b"
 
-# black = "#000000"
-# comment = "#654642"
-# comment_doc = "#234048"
 hints = "#31353c"
 ruler  = "#222320"
-
-# error = "#ff4000"
-# warning = "#ffbf00"
-# display = "#42baff"
-# info = "#dad7d5"
-
-# diff_minus = "#ff4000"
-# diff_delta = "#0078bd"
-# diff_plus = "#c9d400"
-# diff_delta_moved = "#0048bd"
 
 t1 = "#0e0e0d" # black
 t2 = "#1d1d1d" # Background
@@ -131,12 +100,12 @@ t3 = "#808080" # grey
 t4 = "#909090" # foreground
 t5 = "#727272" # grey2
 t6 = "#d4c69f" # beige
-t7 = "#9dc183" # red
+t7 = "#9dc183" # green
 t8 = "#9bc1bb" # teal
 t9 = "#b5c5c5" # less teal
 t10 = "#cecece" # less teal2
 t11 = "#f78c5e" # orange
-white = "#f0f0f0"
+t12 = "#f0f0f0" # white
 
 highlight = "#dec683" #yellow
 highlight_two = "#f69c3c" #orange

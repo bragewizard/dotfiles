@@ -27,7 +27,7 @@ enable = true
 max-wrap = 25
 max-indent-retain = 0
 wrap-indicator = ""
-wrap-at-text-width = true
+wrap-at-text-width = false
 
 # s and d becomes navigation keys
 # a replaces d as deletion
