@@ -1,3 +1,5 @@
+
+set font "GeistMono NF Medium"
 set window-title-basename "true"
 set selection-clipboard "clipboard"
 
