@@ -33,6 +33,7 @@ alias hx="helix"
 alias uiologin="ssh -YC bragewi@login.uio.no"
 alias uiofolder="sshfs bragewi@login.uio.no: /home/brage/IFI -o reconnect,modules=iconv,from_code=utf8"
 alias fastfetch="fastfetch -l ~/dotfiles/ascii/skull.txt --logo-color-1 yellow"
+alias ssh="kitty +kitten ssh"
 alias ls='exa --icons --color=always --group-directories-first'
 alias ll='exa -alF --icons --color=always --group-directories-first'
 alias la='exa -a --icons --color=always --group-directories-first'
