@@ -44,10 +44,6 @@ a = "delete_selection"
 H = "select_regex"
 w = "append_mode"
 W = "insert_at_line_end"
-esc = ["keep_primary_selection", "collapse_selection"]
-";" = "flip_selections"
-"A-;" = "no_op"
-"A-." = "no_op"
 x = ["select_mode", "extend_line_below"]
 X = ["select_mode", "extend_line_above"]
 
@@ -57,12 +53,8 @@ d = ["page_cursor_half_up","goto_window_center"]
 w = "append_mode"
 W = "insert_at_line_end"
 H = "select_regex"
-esc = ["keep_primary_selection", "collapse_selection", "exit_select_mode"]
 v = "extend_to_line_bounds"
-";" = "flip_selections"
 X = "extend_line_above"
-"A-;" = "no_op"
-"A-." = "no_op"
 a = "delete_selection"
 A = "delete_selection_noyank"
 
