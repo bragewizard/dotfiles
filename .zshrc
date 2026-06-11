@@ -39,6 +39,7 @@ alias l='exa -F --icons --color=always --group-directories-first'
 alias l.='exa -a | egrep "^\."'
 alias py="python"
 alias hx="helix"
+alias tt="taskwarrior-tui"
 
 set -o vi
 HISTFILE=~/.histfile
