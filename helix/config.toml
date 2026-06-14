@@ -23,7 +23,7 @@ normal = "block"
 select = "block"
 
 [editor.soft-wrap]
-enable = true
+enable = false
 max-wrap = 25
 max-indent-retain = 0
 wrap-indicator = ""
